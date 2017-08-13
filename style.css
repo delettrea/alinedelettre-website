@@ -216,7 +216,7 @@ header .button{
 
 /*--- SECTION 3 ---*/
 
-.section3 form .space, footer .space{
+.section3 form .space,.log form .space , footer .space{
     margin-bottom: 0;
 }
 
@@ -240,6 +240,19 @@ header .button{
     width: 230px;
 }
 
+/*--- LOGIN ---*/
+
+.login{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.log{
+    background-color: #f4f4f4;
+}
+
 /*--- FOOTER ---*/
 
 footer a{
@@ -255,8 +268,11 @@ footer div:hover, footer div a:hover {
     color: #2196f3;
 }
 
-footer .space{
-    margin-bottom: 0;
+footer{
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (min-width: 736px){
@@ -264,21 +280,7 @@ footer .space{
         background-image: url('img/testbackgtound.png');
         background-position: right bottom;
     }
-    /*.production{
-        margin: auto;
-    }
-    .production,.production .info{
-        width: 652px;
-        height:432px;
-    }
-
-    .product {
-        width : 662px;
-        height:476px;
-        margin: 0 auto 6px auto;
-    }
-    */
-    input[type=email], input[type=text]{
+    input[type=email], input[type=text], input[type=password]{
         width: 278px;
     }
     .section3 textarea {

@@ -1,6 +1,6 @@
 <?php
 
-class TemplateContact extends Production {
+class TemplateContact extends Login {
 
     /**
      * Formulaire permettant de prendre contact.
@@ -15,7 +15,7 @@ class TemplateContact extends Production {
                 <label>Votre email : </label><input type="email" name="email" placeholder="" value="" "/>
             </div>
             <div class="space white object">
-                <label>Sujet de votre contact : </label><input type="text" name="object" placeholder="" value="" "/>
+                <label>Sujet de votre message : </label><input type="text" name="object" placeholder="" value="" "/>
             </div>
             <div class="space white">
                 <label>Votre message : </label>

@@ -16,7 +16,7 @@ class Autoloader{
         if($class ==  'HomeController' || $class ==  'Controller'){
             include 'Controller/'.$class.'.php';
         }
-        elseif ($class == 'Data' || $class == 'Sql'|| $class == 'Contact'|| $class == 'Production'){
+        elseif ($class == 'Data' || $class == 'Sql'|| $class == 'Contact'|| $class == 'Production'|| $class == 'Login'){
             include 'Model/'.$class.'.php';
         }
         else {
