@@ -1,0 +1,225 @@
+/*--- FONT ---*/
+
+@font-face {
+    font-family: 'sertig';
+    src: url('font/Sertig.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'blenda';
+    src: url('font/Blenda Script.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*--- ALL ---*/
+
+body{
+    margin: 0;
+    font-family: 'sertig', sans-serif;
+    font-size: 1.2em;
+    color: #5a5a5a;
+}
+
+h1{
+    font-family: 'blenda', sans-serif;
+    margin: 0;
+    color: white;
+    font-weight: 400;
+}
+
+h2{
+    color: white;
+    font-weight: 400;
+}
+
+h3{
+    margin: 0;
+    padding: 11px 0 5px 0;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    margin: 7px;
+}
+
+p, ul{
+    margin:0;
+    padding: 5px 0 5px 0;
+}
+
+li{
+    list-style: none;
+}
+
+.button, input[type=submit]{
+    font-family: 'sertig', sans-serif;
+    font-size: 1em;
+    background-color: #ffffff;
+    border: 1px solid #5a5a5a;
+    text-decoration: none;
+    padding: 6px 15px;
+    max-width: 150px;
+    text-align: center;
+    color: #5a5a5a;
+}
+
+.button:hover, input[type=submit]:hover{
+    border-color: #2196f3;
+    color: #2196f3;
+}
+
+.white{
+    background-color: #ffffff;
+}
+
+.black{
+    background-color: #5a5a5a;
+    color: #ffffff;
+}
+
+.space{
+    margin-bottom: 6px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row{
+    flex-direction: row;
+}
+
+
+
+/*--- HEADER ---*/
+
+.header{
+    background-image: url("img/background-2462435_19201.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height:400px;
+}
+
+.header div{
+    text-align: center;
+}
+
+/*--- SECTIONS ---*/
+
+.page{
+    background-color: #f4f4f4;
+    padding-top: 18px;
+}
+
+.section{
+    width: 90%;
+    margin: auto;
+    padding-bottom: 16px;
+}
+
+/*section 2*/
+
+.production{
+    width: 100%;
+    border: 3px solid #dcdcdc;
+    height:58vw;
+}
+
+.production .info{
+    height: 58vw;
+    background-color: rgba(0, 0, 0, 0.73);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.production a{
+    margin: 0;
+}
+
+#P1{
+    background-image: url("img/CaptureWebagency.png");
+    background-size: cover;
+}
+
+#P2{
+    background-image: url("img/captureofficetourisme.png");
+    background-size: cover;
+}
+
+#P3{
+    background-image: url("img/Capturesiteperso.png");
+    background-size: cover;
+}
+
+#P4{
+    background-image: url("img/captureappvelo.png");
+    background-size: cover;
+}
+
+#P5{
+    background-image: url("img/captureappvelo.png");
+    background-size: cover;
+}
+
+/*--- SECTION 3 ---*/
+
+.section3 form .space, footer .space{
+    margin-bottom: 0;
+}
+
+.infos{
+    text-align: center;
+}
+
+/*--- ICONS ---*/
+
+.icon{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.iconCenter{
+    text-align: center;
+}
+
+.section3 textarea{
+    height: 100px;
+    width: 230px;
+}
+
+/*--- FOOTER ---*/
+
+footer a{
+    color: #ffffff;
+    font-family: 'sertig', sans-serif;
+}
+
+footer div{
+    margin: 12px 0;
+}
+
+footer div:hover, footer div a:hover{
+    color: #2196f3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
