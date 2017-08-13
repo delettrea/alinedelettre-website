@@ -16,10 +16,17 @@
 
 <header>
 
-    <div class="header">
+    <div class="header center">
         <div id="menu">
-            <i class="fa fa-bars" aria-hidden="true"></i>
+            <p>Menu</p><i class="fa fa-bars" aria-hidden="true"></i>
         </div>
+        <nav>
+            <ul>
+                <li><a href="">Présentation</a></li>
+                <li><a href="">Réalisations</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
         <div>
         <h1>Aline Delettre</h1>
         <h2>développeuse web</h2>

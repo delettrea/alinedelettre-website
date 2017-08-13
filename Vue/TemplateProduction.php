@@ -8,7 +8,7 @@ class TemplateProduction extends TemplateContact {
     public function seeProduction(){
         while($data = $this->request->fetch()) {
             ?>
-            <div class="space white">
+            <div class="product space white">
                 <? echo '<div class="production" id="P'.$data['ID'].'">';
                     echo '<a href="'.$data['href'].'" target="blank">';
                 ?>

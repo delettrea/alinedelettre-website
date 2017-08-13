@@ -29,11 +29,13 @@ h1{
     margin: 0;
     color: white;
     font-weight: 400;
+    font-size: 2.4em;
 }
 
 h2{
     color: white;
     font-weight: 400;
+    margin: 8px 0 34px 0;
 }
 
 h3{
@@ -99,15 +101,55 @@ li{
 /*--- HEADER ---*/
 
 .header{
-    background-image: url("img/background-2462435_19201.jpg");
+    background-image: url("img/Sans titre-1mobile.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height:400px;
 }
 
-.header div{
+.center{
     text-align: center;
+}
+
+header ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header li{
+    border: 1px solid white;
+    padding: 5px 47px;
+    margin: 9px 0;
+}
+
+header li a {
+    color: white;
+    font-weight: 600;
+}
+
+header #menu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 11px;
+    color: white;
+    font-weight: 600;
+}
+
+#menu p {
+    text-transform: uppercase;
+}
+
+header i{
+    padding: 0 15px;
+}
+
+header .button{
+    border: 1px solid #ffffff;
+    padding: 10px 15px 6px 15px;
+    text-transform: uppercase;
 }
 
 /*--- SECTIONS ---*/
@@ -133,8 +175,10 @@ li{
 
 .production .info{
     height: 58vw;
-    background-color: rgba(0, 0, 0, 0.73);
+    background-image: url("img/testProduct.png");
+    background-size: contain;
     color: white;
+    font-weight: 600;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,15 +255,42 @@ footer div:hover, footer div a:hover{
     color: #2196f3;
 }
 
+@media (min-width: 736px){
+    .header {
+        background-image: url('img/testbackgtound.png');
+        background-position: right bottom;
+    }
+    /*.production{
+        margin: auto;
+    }
+    .production,.production .info{
+        width: 652px;
+        height:432px;
+    }
 
+    .product {
+        width : 662px;
+        height:476px;
+        margin: 0 auto 6px auto;
+    }
+    */
+    input[type=email], input[type=text]{
+        width: 278px;
+    }
+    .section3 textarea {
+        height: 149px;
+        width: 327px;
+    }
+    p{
+        text-align: center;
+    }
 
+}
 
+@media (min-width: 1000px){
+    .product{
+        max-width: 499px;
+        max-height: 341px;
+    }
 
-
-
-
-
-
-
-
-
+}

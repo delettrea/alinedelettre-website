@@ -1,6 +1,17 @@
 <?php
 
-class HomeController extends TemplateProduction {
+class HomeController extends TemplateLegal {
+
+    public function prepareWebsite(){
+        if (isset($_GET['action']) && !empty($_GET['action'])){
+            if($_GET['action'] == "legal"){
+                self::seeLegal();
+            }
+        }
+        else{
+            self::seeWebsite();
+        }
+    }
 
     public function prepareSendEmail(){
         if (isset($_GET['action']) && $_GET['action'] == "contact"){

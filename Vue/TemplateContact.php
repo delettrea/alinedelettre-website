@@ -9,13 +9,13 @@ class TemplateContact extends Production {
         ?>
         <form class="form" method="post" action=<?= "index.php?action=contact" ?>>
             <div class="space white name">
-                <label>Votre nom : </label><input type="text" name="name" placeholder="Titre de l'article" value="" "/>
+                <label>Votre nom : </label><input type="text" name="name" placeholder="" value="" "/>
             </div>
             <div class="space white email">
-                <label>Votre email : </label><input type="email" name="email" placeholder="Titre de l'article" value="" "/>
+                <label>Votre email : </label><input type="email" name="email" placeholder="" value="" "/>
             </div>
             <div class="space white object">
-                <label>Sujet de votre contact : </label><input type="text" name="object" placeholder="Titre de l'article" value="" "/>
+                <label>Sujet de votre contact : </label><input type="text" name="object" placeholder="" value="" "/>
             </div>
             <div class="space white">
                 <label>Votre message : </label>
@@ -25,7 +25,6 @@ class TemplateContact extends Production {
             <input class="button" type="submit" value="Contacter" />
             </div>
         </form>
-
         <?php
         self::seeContactSend();
         ?>
