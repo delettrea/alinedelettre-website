@@ -64,7 +64,7 @@ li{
     background-color: #ffffff;
     border: 1px solid #5a5a5a;
     text-decoration: none;
-    padding: 6px 15px;
+    padding: 10px 15px 6px 15px;
     max-width: 150px;
     text-align: center;
     color: #5a5a5a;
@@ -251,8 +251,12 @@ footer div{
     margin: 12px 0;
 }
 
-footer div:hover, footer div a:hover{
+footer div:hover, footer div a:hover {
     color: #2196f3;
+}
+
+footer .space{
+    margin-bottom: 0;
 }
 
 @media (min-width: 736px){
@@ -289,8 +293,20 @@ footer div:hover, footer div a:hover{
 
 @media (min-width: 1000px){
     .product{
-        max-width: 499px;
-        max-height: 341px;
+        height: 303px;
+        width: 444px;
+    }
+    .production, .production .info{
+        max-width: 444px;
+        max-height: 303px;
+    }
+    .rowProduct{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .section{
+        max-width: 1000px;
     }
 
 }
