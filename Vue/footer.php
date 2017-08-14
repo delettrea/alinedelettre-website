@@ -10,7 +10,7 @@
         echo "<a class='' href='index.php?action=login'>Espace d'administration</a>";
         }
         else{
-        echo 'Bievenue sur le site '.$_SESSION['name'].' - <a class="" href="index.php?action=logout">Se déconnecter</a>';
+        echo 'Bievenue sur le site '.$_SESSION['login'].' - <a class="" href="index.php?action=logout">Se déconnecter</a>';
         }
         ?>
     </p>

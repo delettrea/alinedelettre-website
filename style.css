@@ -189,6 +189,18 @@ header .button{
     margin: 0;
 }
 
+.no-padding{
+    padding: 0;
+}
+
+.choices{
+    text-align: center;
+}
+
+.choices input{
+    margin-top: 8px;
+}
+
 #P1{
     background-image: url("img/CaptureWebagency.png");
     background-size: cover;
@@ -280,7 +292,7 @@ footer{
         background-image: url('img/testbackgtound.png');
         background-position: right bottom;
     }
-    input[type=email], input[type=text], input[type=password]{
+    input[type=email], input[type=text], input[type=url], input[type=password]{
         width: 278px;
     }
     .section3 textarea {

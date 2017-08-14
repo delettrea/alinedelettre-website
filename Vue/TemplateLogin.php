@@ -25,5 +25,4 @@ class TemplateLogin extends TemplateLegal {
         <?php
     }
 
-
 }

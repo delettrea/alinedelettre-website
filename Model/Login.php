@@ -2,7 +2,7 @@
 
 class Login extends Production {
 
-    public $sqlLogin = "SELECT id, login, user.name, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
+    public $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
 
     /**
      * Verifie les données envoyées via le formulaire.
@@ -24,5 +24,7 @@ class Login extends Production {
         session_destroy();
         header('location: index.php');
     }
+
+
 
 }

@@ -16,6 +16,23 @@ class HomeController extends TemplateLogin {
             elseif ($_GET['action'] == "logout"){
                 self::logout();
             }
+            elseif ($_GET['action'] == "sendProduction"){
+                if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['type'] == "admin"){
+                   self::sqlPrepare($this->sqlNewProduction, self::arrayProduct());
+                   self::seeWebsite();
+                }
+            }
+            elseif ($_GET['action'] == "editProduction"){
+                self::seeWebsite();
+            }
+            elseif ($_GET['action'] == "sendEditProduction"){
+                self::sqlPrepare($this->sqlSendEditProduct, self::arraySendEditProduct());
+                self::seeWebsite();
+            }
+            elseif ($_GET['action'] == "deleteProduction"){
+                self::sqlPrepare($this->sqlDeleteProduction, self::arrayPostID());
+                self::seeWebsite();
+            }
         }
         else{
             self::seeWebsite();
@@ -52,6 +69,7 @@ class HomeController extends TemplateLogin {
         self::log();
     }
 
+
     /**
      * Permet de vérifier si tous les paramètres de connexion sont exacts.
      * @param $function Fonction à lancer si les données sont fausses.
@@ -60,7 +78,7 @@ class HomeController extends TemplateLogin {
         while ($data = $this->request->fetch()){
             if($data['findLogin'] == 1){
                 $_SESSION['login'] = $data['login'];
-                $_SESSION['name'] = $data['name'];
+                $_SESSION['type'] = $data['type'];
                 header('location: index.php');
             }
             elseif ($data['findLogin'] != 1){
@@ -69,7 +87,6 @@ class HomeController extends TemplateLogin {
             }
         }
     }
-
 
 
 }
