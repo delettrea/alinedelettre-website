@@ -5,27 +5,24 @@ class TemplateProduction extends TemplateContact {
     /**
      * Fonction permettant de visualiser les informations sur un site.
      */
+
     public function seeProduction(){
         while($data = $this->request->fetch()) {
             ?>
-            <div class="product space">
-                <?= '<div class="production" id="P'.$data['id'].'">'; ?>
-                <div class="info">
-                    <?= '<a href="'.$data['href'].'" target="blank">'; ?>
-                    <div>
-                   <?php $this->seeNumberProject($data)?>
+            <div class="product space white">
+                <? echo '<div class="production" id="P'.$data['id'].'">';
+                ?>
+                <? echo '<div class="P'.$data['id'].' info">'?>
+                    <?php $this->seeNumberProject($data)?>
                     <p class="name"><?= $data['name'] ?></p>
-                    <ul class="fa-ul">
+                    <ul class="fa-ul delete">
                         <li><i class="fa-li fa fa-check-square"></i><?= $data['infos1'] ?></li>
                         <li><i class="fa-li fa fa-check-square"></i><?= $data['infos2'] ?></li>
                         <li><i class="fa-li fa fa-check-square"></i><?= $data['infos3'] ?></li>
                     </ul>
-                    <p class="infos"><?= $data['description'] ?></p>
-                    </div>
-                    <?= '</a>'; ?>
+                    <p class="infos delete"><?= $data['description'] ?></p>
                 </div>
             </div>
-            </a>
             </div>
             <?php
         }
@@ -34,8 +31,15 @@ class TemplateProduction extends TemplateContact {
         $this->seeEditProduct();
     }
 
-    public function test(){
-        echo "testtounetotu d'amour";
+    public function seeAllProduction(){
+        ?>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-check-square"></i><?= $data['infos1'] ?></li>
+            <li><i class="fa-li fa fa-check-square"></i><?= $data['infos2'] ?></li>
+            <li><i class="fa-li fa fa-check-square"></i><?= $data['infos3'] ?></li>
+        </ul>
+        <p class="infos"><?= $data['description'] ?></p>
+        <?php
     }
 
     public function seeNumberProject($data){

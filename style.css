@@ -185,28 +185,20 @@ header .button{
 /*section 2*/
 
 .production{
-    max-height: 289px;
     width: 100%;
     border: 3px solid #dcdcdc;
     height:58vw;
 }
 
 .production .info{
-    max-height: 289px;
-    height: 58vw;
     background-image: url("img/testProduct.png");
-    background-size: contain;
+    background-size: cover;
+    color: white;
     font-weight: 600;
-}
-
-.production .info a{
-    max-height: 289px;
-    height: 58vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    color: white;
 }
 
 .production a{
@@ -346,7 +338,11 @@ footer{
     }
     .production, .production .info{
         max-width: 444px;
-        max-height: 289px;
+        max-height: 281px;
+    }
+    .production .info{
+        font-size: 1.3em;
+        height: 100%
     }
     .rowProduct{
         display: flex;
