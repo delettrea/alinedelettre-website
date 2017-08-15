@@ -5,68 +5,68 @@ class HomeController extends TemplateLogin {
     public function prepareWebsite(){
         if (isset($_GET['action']) && !empty($_GET['action'])){
             if($_GET['action'] == "legal"){
-                self::seeLegal();
+                $this->seeLegal();
             }
             elseif ($_GET['action'] == "login"){
-                self::prepareLogin();
+                $this->prepareLogin();
             }
             elseif ($_GET['action'] == "sendLogin"){
-                self::sendLogin();
+                $this->sendLogin();
             }
             elseif ($_GET['action'] == "logout"){
-                self::logout();
+                $this->logout();
             }
             elseif ($_GET['action'] == "sendProduction"){
                 if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['type'] == "admin"){
-                   self::sqlPrepare($this->sqlNewProduction, self::arrayProduct());
-                   self::seeWebsite();
+                   $this->sqlPrepare($this->sqlNewProduction, $this->arrayProduct());
+                   $this->seeWebsite();
                 }
             }
             elseif ($_GET['action'] == "editProduction"){
-                self::seeWebsite();
+                $this->seeWebsite();
             }
             elseif ($_GET['action'] == "sendEditProduction"){
-                self::sqlPrepare($this->sqlSendEditProduct, self::arraySendEditProduct());
-                self::seeWebsite();
+                $this->sqlPrepare($this->sqlSendEditProduct, $this->arraySendEditProduct());
+                $this->seeWebsite();
             }
             elseif ($_GET['action'] == "deleteProduction"){
-                self::sqlPrepare($this->sqlDeleteProduction, self::arrayPostID());
-                self::seeWebsite();
+                $this->sqlPrepare($this->sqlDeleteProduction, $this->arrayPostID());
+                $this->seeWebsite();
             }
         }
         else{
-            self::seeWebsite();
+            $this->seeWebsite();
         }
     }
 
     public function prepareSendEmail(){
         if (isset($_GET['action']) && $_GET['action'] == "contact"){
-            self::sendEmail();
-            self::seeContact();
+            $this->sendEmail();
+            $this->seeContact();
         }
         else{
-            self::seeContact();
+            $this->seeContact();
         }
     }
 
     public function prepareProduction(){
-        self::sqlPrepare($this->sqlSeeProduction, $this->emptyArray);
-        self::seeProduction();
+        $this->sqlPrepare($this->sqlSeeProduction, $this->emptyArray);
+        $this->seeProduction();
     }
 
     /**
      * Prepare la fonction pour se connecter au site.
      */
     public function prepareLogin(){
-        self::seeLogin();
+        $this->seeLogin();
     }
 
     /**
      * Prépare la fonction qui vérifie si les données de connexion sont exactes.
      */
     public function sendLogin(){
-        self::sqlPrepare($this->sqlLogin, self::checkValueLogin());
-        self::log();
+        $this->sqlPrepare($this->sqlLogin, $this->checkValueLogin());
+        $this->log();
     }
 
 
@@ -82,8 +82,8 @@ class HomeController extends TemplateLogin {
                 header('location: index.php');
             }
             elseif ($data['findLogin'] != 1){
-                self::seeLogin();
-                echo '<p class="error bottom-error">connexion impossible, veuillez verifier votre pseudo et votre mot de passe</p>';
+                $this->seeLogin();
+                echo '<p class="error">connexion impossible, veuillez verifier votre pseudo et votre mot de passe</p>';
             }
         }
     }

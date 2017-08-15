@@ -5,15 +5,15 @@ class Controller extends HomeController {
     public $action;
 
     public function website(){
-        self::prepareWebsite();
+        $this->prepareWebsite();
     }
 
     public function contact(){
-        self::prepareSendEmail();
+        $this->prepareSendEmail();
     }
 
     public function production(){
-        self::prepareProduction();
+        $this->prepareProduction();
     }
 
 }

@@ -29,7 +29,7 @@ class Production extends Contact {
 
     public function arraySendEditProduct(){
         $arrayID = array('id' => $_GET['id']);
-        $arraySendEdit = array_merge(self::arrayProduct(), $arrayID);
+        $arraySendEdit = array_merge($this->arrayProduct(), $arrayID);
         return $arraySendEdit;
     }
 

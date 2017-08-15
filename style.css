@@ -29,7 +29,7 @@ h1{
     margin: 0;
     color: white;
     font-weight: 400;
-    font-size: 2.4em;
+    font-size: 2.7em;
 }
 
 h2{
@@ -71,8 +71,8 @@ li{
 }
 
 .button:hover, input[type=submit]:hover{
-    border-color: #2196f3;
-    color: #2196f3;
+    border-color: #3498db;
+    color: #3498db;
 }
 
 .white{
@@ -94,6 +94,10 @@ li{
 
 .row{
     flex-direction: row;
+}
+
+.error{
+    color : red;
 }
 
 
@@ -120,13 +124,17 @@ header ul{
 
 header li{
     border: 1px solid white;
-    padding: 5px 47px;
+    padding: 10px 36px 6px 36px;
     margin: 9px 0;
 }
 
 header li a {
     color: white;
     font-weight: 600;
+}
+
+header a{
+    color: white;
 }
 
 header #menu{
@@ -136,10 +144,12 @@ header #menu{
     padding-top: 11px;
     color: white;
     font-weight: 600;
+    max-width: 1000px;
+    margin: auto;
 }
 
-#menu p {
-    text-transform: uppercase;
+#menu{
+    cursor:  pointer;
 }
 
 header i{
@@ -150,6 +160,13 @@ header .button{
     border: 1px solid #ffffff;
     padding: 10px 15px 6px 15px;
     text-transform: uppercase;
+    color: #00bcd4;
+}
+
+/* CARD */
+
+.empty{
+    height: 26vh;
 }
 
 /*--- SECTIONS ---*/
@@ -168,21 +185,28 @@ header .button{
 /*section 2*/
 
 .production{
+    max-height: 289px;
     width: 100%;
     border: 3px solid #dcdcdc;
     height:58vw;
 }
 
 .production .info{
+    max-height: 289px;
     height: 58vw;
     background-image: url("img/testProduct.png");
     background-size: contain;
-    color: white;
     font-weight: 600;
+}
+
+.production .info a{
+    max-height: 289px;
+    height: 58vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    color: white;
 }
 
 .production a{
@@ -224,6 +248,10 @@ header .button{
 #P5{
     background-image: url("img/captureappvelo.png");
     background-size: cover;
+}
+
+.section1 > div:nth-child(4){
+    justify-content: center;
 }
 
 /*--- SECTION 3 ---*/
@@ -277,7 +305,7 @@ footer div{
 }
 
 footer div:hover, footer div a:hover {
-    color: #2196f3;
+    color: #3498db;
 }
 
 footer{
@@ -302,17 +330,23 @@ footer{
     p{
         text-align: center;
     }
+    .header{
+        height: 63vh;
+    }
+    .empty{
+        height: 36vh;
+    }
 
 }
 
 @media (min-width: 1000px){
     .product{
-        height: 303px;
+        height: 289px;
         width: 444px;
     }
     .production, .production .info{
         max-width: 444px;
-        max-height: 303px;
+        max-height: 289px;
     }
     .rowProduct{
         display: flex;
@@ -322,5 +356,15 @@ footer{
     .section{
         max-width: 1000px;
     }
-
+    .header{
+        max-width: 1920px;
+        max-height: 1280px;
+        margin: auto;
+    }
+    header{
+        background-color: #f4f4f4;
+    }
+    .empty{
+        height: 31vh;
+    }
 }

@@ -8,12 +8,12 @@ class TemplateProduction extends TemplateContact {
     public function seeProduction(){
         while($data = $this->request->fetch()) {
             ?>
-            <div class="product space white">
-                <? echo '<div class="production" id="P'.$data['id'].'">';
-                echo '<a href="'.$data['href'].'" target="blank">';
-                ?>
+            <div class="product space">
+                <?= '<div class="production" id="P'.$data['id'].'">'; ?>
                 <div class="info">
-                   <?php self::seeNumberProject($data)?>
+                    <?= '<a href="'.$data['href'].'" target="blank">'; ?>
+                    <div>
+                   <?php $this->seeNumberProject($data)?>
                     <p class="name"><?= $data['name'] ?></p>
                     <ul class="fa-ul">
                         <li><i class="fa-li fa fa-check-square"></i><?= $data['infos1'] ?></li>
@@ -21,15 +21,21 @@ class TemplateProduction extends TemplateContact {
                         <li><i class="fa-li fa fa-check-square"></i><?= $data['infos3'] ?></li>
                     </ul>
                     <p class="infos"><?= $data['description'] ?></p>
+                    </div>
+                    <?= '</a>'; ?>
                 </div>
             </div>
             </a>
             </div>
             <?php
         }
-        self::seeNewProduction();
-        self::seeDeleteEditProduct();
-        self::seeEditProduct();
+        $this->seeNewProduction();
+        $this->seeDeleteEditProduct();
+        $this->seeEditProduct();
+    }
+
+    public function test(){
+        echo "testtounetotu d'amour";
     }
 
     public function seeNumberProject($data){
@@ -83,7 +89,7 @@ class TemplateProduction extends TemplateContact {
                     <label for="id">Choisir le projet à surpprimer</label><br />
                     <select name="id" id="deleteID">
                         <?php
-                        self::sqlPrepare($this->sqlSelectId, $this->emptyArray);
+                        $this->sqlPrepare($this->sqlSelectId, $this->emptyArray);
                         while ($data = $this->request->fetch()){
                             echo '<option value="'.$data['id'].'">'.$data['id'].'</option>';
                         }?>
@@ -97,7 +103,7 @@ class TemplateProduction extends TemplateContact {
                     <label for="id">Choisir le projet à surpprimer</label><br />
                     <select name="id" id="editID">
                         <?php
-                        self::sqlPrepare($this->sqlSelectId, $this->emptyArray);
+                        $this->sqlPrepare($this->sqlSelectId, $this->emptyArray);
                         while ($data = $this->request->fetch()){
                             echo '<option value="'.$data['id'].'">'.$data['id'].'</option>';
                         }?>
@@ -113,7 +119,7 @@ class TemplateProduction extends TemplateContact {
 
     public function seeEditProduct(){
         if(isset($_GET['action']) && $_GET['action'] == 'editProduction'){
-            self::sqlPrepare($this->sqlSeeEditProduction, self::arrayEditProduct());
+            $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayEditProduct());
             while($data = $this->request->fetch()){
                 ?>
                 <div class="product space white newProduct">

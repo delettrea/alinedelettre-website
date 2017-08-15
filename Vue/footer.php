@@ -15,6 +15,8 @@
         ?>
     </p>
 </footer>
+<script src="menu.js"></script>
+<script src="index.js"></script>
 </body>
 
 </html>

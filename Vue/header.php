@@ -14,23 +14,24 @@ session_start();
 </head>
 
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <header>
 
     <div class="header center">
         <div id="menu">
             <p>Menu</p><i class="fa fa-bars" aria-hidden="true"></i>
         </div>
-        <nav>
+        <nav id="nav">
             <ul>
                 <li><a href="">Présentation</a></li>
                 <li><a href="">Réalisations</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
         </nav>
-        <div>
-        <h1>Aline Delettre</h1>
-        <h2>développeuse web</h2>
+        <div class="empty"></div>
+        <div class="card">
+            <h1><a href="">Aline Delettre</a></h1>
+            <h2><a href="">développeuse web</a></h2>
         <a class="button">Voir le site</a>
         </div>
     </div>
