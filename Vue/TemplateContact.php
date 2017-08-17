@@ -1,6 +1,9 @@
 <?php
 
-class TemplateContact extends Login {
+    namespace App\Vue;
+
+
+class TemplateContact extends \App\Model\Login {
 
     /**
      * Formulaire permettant de prendre contact.

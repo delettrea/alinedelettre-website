@@ -1,9 +1,12 @@
 <?php
 
+namespace App\Vue;
+
+
 class TemplateWebsite extends TemplateProduction{
 
     public function seeWebsite(){
-        $nav = new Controller();
+        $nav = new \App\Controller\Controller();
         ?>
         <div class="page">
             <section class="section section1">

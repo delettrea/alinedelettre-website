@@ -1,6 +1,8 @@
 <?php
 
-class HomeController extends TemplateLogin {
+namespace App\Controller;
+
+class HomeController extends \App\Vue\TemplateLogin {
 
     public function prepareWebsite(){
         if (isset($_GET['action']) && !empty($_GET['action'])){

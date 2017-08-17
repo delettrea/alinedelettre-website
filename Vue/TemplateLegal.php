@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Vue;
+
+
 class TemplateLegal extends TemplateWebsite{
 
     public function seeLegal(){

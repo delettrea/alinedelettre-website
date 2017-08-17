@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Model;
+
+
 class Login extends Production {
 
     public $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";

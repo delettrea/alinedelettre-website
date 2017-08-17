@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Model;
+
+
 class Production extends Contact {
 
     public $sqlSeeProduction = "SELECT * FROM `production`";

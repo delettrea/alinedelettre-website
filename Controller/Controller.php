@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controller;
+
 class Controller extends HomeController {
 
     public $action;

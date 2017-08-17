@@ -1,10 +1,9 @@
 <?php
 include("Vue/header.php");
 
+require 'vendor/autoload.php';
 
-require 'Autoloader.php';
-Autoloader::register();
-$index = new Controller();
+$index = new App\Controller\Controller();
 
 $index->website();
 

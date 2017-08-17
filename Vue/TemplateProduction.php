@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Vue;
+
+
 class TemplateProduction extends TemplateContact {
 
     /**

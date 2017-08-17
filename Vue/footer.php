@@ -1,9 +1,7 @@
 <?php
 ?>
 <footer class="black">
-    <div>
-        <i class="fa fa-github-square gitHub" aria-hidden="true"><a href="https://github.com/delettrea" target="_blank">delettrea</a></i>
-    </div>
+    <a class="footerGithub" href="https://github.com/delettrea" target="_blank"><i class="fa fa-github-square gitHub" aria-hidden="true"></i><p>delettrea</p></a>
     <p>2017 <a href="index.php">Aline Delettre</a> - <a href="index.php?action=ml">Mentions légales</a>-
         <?php
         if(empty($_SESSION['login'])) {

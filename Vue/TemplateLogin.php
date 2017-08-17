@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Vue;
+
 class TemplateLogin extends TemplateLegal {
 
     /**

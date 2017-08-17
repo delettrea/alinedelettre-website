@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Model;
+
+
 /**
  * Class Sql
  * Prépare PDO pour la base de données et l'exécute.
