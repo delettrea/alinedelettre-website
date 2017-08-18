@@ -4,42 +4,8 @@ namespace App\Controller;
 
 class HomeController extends \App\Vue\TemplateLogin {
 
-    public function prepareWebsite(){
-        if (isset($_GET['action']) && !empty($_GET['action'])){
-            if($_GET['action'] == "legal"){
-                $this->seeLegal();
-            }
-            elseif ($_GET['action'] == "login"){
-                $this->prepareLogin();
-            }
-            elseif ($_GET['action'] == "sendLogin"){
-                $this->sendLogin();
-            }
-            elseif ($_GET['action'] == "logout"){
-                $this->logout();
-            }
-            elseif ($_GET['action'] == "sendProduction"){
-                if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['type'] == "admin"){
-                   $this->sqlPrepare($this->sqlNewProduction, $this->arrayProduct());
-                   $this->seeWebsite();
-                }
-            }
-            elseif ($_GET['action'] == "editProduction"){
-                $this->seeWebsite();
-            }
-            elseif ($_GET['action'] == "sendEditProduction"){
-                $this->sqlPrepare($this->sqlSendEditProduct, $this->arraySendEditProduct());
-                $this->seeWebsite();
-            }
-            elseif ($_GET['action'] == "deleteProduction"){
-                $this->sqlPrepare($this->sqlDeleteProduction, $this->arrayPostID());
-                $this->seeWebsite();
-            }
-        }
-        else{
-            $this->seeWebsite();
-        }
-    }
+
+
 
     public function prepareSendEmail(){
         if (isset($_GET['action']) && $_GET['action'] == "contact"){

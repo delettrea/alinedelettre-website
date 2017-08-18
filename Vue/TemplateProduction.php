@@ -9,7 +9,7 @@ class TemplateProduction extends TemplateContact {
      * Fonction permettant de visualiser les informations sur un site.
      */
 
-    public function seeProduction(){
+    public function htmlSeeProduction(){
         while($data = $this->request->fetch()) {
             ?>
             <div class="product space white">

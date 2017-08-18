@@ -7,6 +7,17 @@ class Login extends Production {
 
     public $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
 
+
+    public function session(){
+        if(isset($_SESSION) && !empty($_SESSION)){
+            print_r($_SESSION);
+            return $_SESSION;
+        }
+        else{
+            return null;
+        }
+    }
+
     /**
      * Verifie les données envoyées via le formulaire.
      * @return array Tableau prêt pour une requête sql.

@@ -21,7 +21,8 @@ class Data{
     public function __construct(){
         try{
             $this->bdd = new \PDO('mysql:host='.self::HOST.';dbname='.self::DBNAME.';charset=utf8', ''.self::USERNAME .'', ''.self::PASSWORD.'');
-            $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING);
+            $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $this->bdd->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
         }
         catch (Exception $e)
         {

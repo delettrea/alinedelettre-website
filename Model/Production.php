@@ -36,4 +36,9 @@ class Production extends Contact {
         return $arraySendEdit;
     }
 
+    public function seeProduction(){
+        $seeProduction = $this->sqlPrepare($this->sqlSeeProduction);
+        return $seeProduction;
+    }
+
 }
