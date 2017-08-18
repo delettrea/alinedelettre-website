@@ -14,43 +14,38 @@ class Controller extends HomeController {
             $this->action($action,$twig);
         }
         else{
-            echo $twig->render('contact.twig', ['productions' => $this->seeProduction(), 'session' => $this->session() ]);
+            echo $twig->render('adminProduction.twig', $this->seeProduction());
         }
-
     }
+
 
     protected function action($action,$twig){
         if ($action == "legal") {
-            $this->seeLegal();
+            echo $twig->render('legal.twig');
         }
         elseif ($action == "login"){
-            $this->prepareLogin();
+            echo $twig->render('login.twig');
         }
         elseif($action == "sendLogin"){
-            $this->sendLogin();
+            $this->log($this->prepareSendLogin(), $twig);
         }
         elseif($action == "logout"){
             $this->logout();
         }
         elseif($action == "sendProduction"){
-            if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['type'] == "admin") {
-                $this->sqlPrepare($this->sqlNewProduction, $this->arrayProduct());
-                $this->seeWebsite();
-            }
+            $this->sendProduction($twig);
         }
-        elseif($action == "editProduction"){
-            $this->seeWebsite();
+        elseif($action == "editProduction") {
+            echo $twig->render('adminProduction.twig', $this->seeProduction(), $this->editProduction());
         }
         elseif($action == "sendEditProduction"){
-            $this->sqlPrepare($this->sqlSendEditProduct, $this->arraySendEditProduct());
-            $this->seeWebsite();
+           $this->sendEditProduction();
+           echo $twig->render('adminProduction.twig', $this->seeProduction());
         }
         elseif($action == "deleteProduction"){
-            $this->sqlPrepare($this->sqlDeleteProduction, $this->arrayPostID());
-            $this->seeWebsite();
+            $this->deleteProduction();
+            echo $twig->render('adminProduction.twig', $this->seeProduction());
         }
-
-
     }
 
 

@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Vue;
 
-
-class TemplateWebsite extends TemplateProduction{
+class TemplateWebsite {
 
     public function seeWebsite(){
         $nav = new \App\Controller\Controller();

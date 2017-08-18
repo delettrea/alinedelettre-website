@@ -3,19 +3,20 @@
 namespace App\Model;
 
 
-class Login extends Production {
+class Login extends Sql {
 
     public $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
 
 
+
     public function session(){
-        if(isset($_SESSION) && !empty($_SESSION)){
-            print_r($_SESSION);
-            return $_SESSION;
-        }
-        else{
-            return null;
-        }
+            $session = $_SESSION['type'];
+            return $session;
+    }
+
+    public function prepareSendLogin(){
+        $request = $this->sqlPrepare($this->sqlLogin, $this->checkValueLogin());
+        return $request;
     }
 
     /**
@@ -38,6 +39,10 @@ class Login extends Production {
         session_destroy();
         header('location: index.php');
     }
+
+
+
+
 
 
 

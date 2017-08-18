@@ -3,16 +3,43 @@
 namespace App\Model;
 
 
-class Production extends Contact {
+class Production extends Login {
 
     public $sqlSeeProduction = "SELECT * FROM `production`";
-    public $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:editID";
+    public $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:id";
     public $sqlDeleteProduction ="DELETE FROM `production` WHERE id=:id";
     public $sqlSendEditProduct = "UPDATE `production` SET href=:href,name=:name,description=:description,infos1=:infos1,infos2=:infos2,infos3=:infos3 WHERE id=:id";
     public $sqlSelectId = "SELECT `id` FROM `production`";
     public $sqlNewProduction ="INSERT INTO `production`(`href`, `name`, `description`, `infos1`, `infos2`, `infos3`) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
-    public $emptyArray = array();
 
+
+
+    public function seeProduction(){
+        $seeProduction = array('productions' => $this->sqlPrepare($this->sqlSeeProduction));
+        $nbProductionDelete = array('nbProductionDelete' => $this->sqlPrepare($this->sqlSelectId));
+        $nbProduction = array('nbProduction' => $this->sqlPrepare($this->sqlSelectId));
+        $seeProduction = array_merge($seeProduction, $nbProduction, $nbProductionDelete);
+        if(isset($_SESSION['type']) && $_SESSION['type'] == 'admin'){
+            $session = array('session' => $this->session());
+            $seeProduction = array_merge($seeProduction,$session);
+        }
+        return $seeProduction;
+    }
+
+    public function editProduction(){
+            $array = array('edit' => $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID()));
+            return $array;
+    }
+
+    public function sendEditProduction(){
+        $sendEditProduction = $this->sqlPrepare($this->sqlSendEditProduct, $this->arraySendEditProduct());
+        return $sendEditProduction;
+    }
+
+    public function deleteProduction(){
+        $sendEditProduction = $this->sqlPrepare($this->sqlDeleteProduction, $this->arrayPostID());
+        return $sendEditProduction;
+    }
 
     public function arrayProduct(){
         extract($_POST);
@@ -36,9 +63,6 @@ class Production extends Contact {
         return $arraySendEdit;
     }
 
-    public function seeProduction(){
-        $seeProduction = $this->sqlPrepare($this->sqlSeeProduction);
-        return $seeProduction;
-    }
+
 
 }

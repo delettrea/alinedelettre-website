@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class Contact extends Sql {
+class Contact extends Production {
 
     public $message;
     public $objet;

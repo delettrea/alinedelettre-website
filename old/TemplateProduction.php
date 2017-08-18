@@ -1,9 +1,5 @@
 <?php
-
-namespace App\Vue;
-
-
-class TemplateProduction extends TemplateContact {
+class TemplateProduction {
 
     /**
      * Fonction permettant de visualiser les informations sur un site.
@@ -33,26 +29,6 @@ class TemplateProduction extends TemplateContact {
         $this->seeDeleteEditProduct();
         $this->seeEditProduct();
     }
-
-    public function seeAllProduction(){
-        ?>
-        <ul class="fa-ul">
-            <li><i class="fa-li fa fa-check-square"></i><?= $data['infos1'] ?></li>
-            <li><i class="fa-li fa fa-check-square"></i><?= $data['infos2'] ?></li>
-            <li><i class="fa-li fa fa-check-square"></i><?= $data['infos3'] ?></li>
-        </ul>
-        <p class="infos"><?= $data['description'] ?></p>
-        <?php
-    }
-
-    public function seeNumberProject($data){
-        if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['type'] == "admin") {
-            ?>
-            <p class="no-padding">Projet  <?=$data['id']?></p>
-            <?php
-        }
-    }
-
 
     public function seeNewProduction(){
         if(isset($_SESSION) && !empty($_SESSION) && $_SESSION['type'] == "admin") {

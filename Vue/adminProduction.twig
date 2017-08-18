@@ -1,0 +1,92 @@
+{% extends 'contact.twig' %}
+
+
+{% block seeDeleteEditProduct %}
+    <div class="product space white newProduct">
+        <h3>Supprimer un projet</h3>
+        <form class="choices" method="post" action="index.php?action=deleteProduction">
+            <label for="id">Choisir le projet à surpprimer</label><br />
+            <select name="id" id="deleteID">
+                {% for nbProductDelete in nbProductionDelete %}
+                    <option value="{{ nbProductDelete.id }}">{{ nbProductDelete.id }}</option>
+                {% endfor %}
+            </select>
+            <div class="space white no-padding">
+                <input class="button" type="submit" value="Supprimer"/>
+            </div>
+        </form>
+        <h3>Modifier un projet</h3>
+        <form class="choices" method="post" action="index.php?action=editProduction">
+            <label for="id">Choisir le projet à surpprimer</label><br />
+            <select name="id" id="editID">
+                {% for nbProduct in nbProduction %}
+                    <option value="{{ nbProduct.id }}">{{ nbProduct.id }}</option>
+                {% endfor %}
+            </select>
+            <div class="space white no-padding">
+                <input class="button" type="submit" value="Modifier"/>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block seeNewProduction %}
+    <div class="product space white newProduct">
+        <h3>Nouveau projet</h3>
+        <form method="post" action="index.php?action=sendProduction">
+            <div class="space white no-padding">
+                <input type="text" name="name" placeholder="Nom du projet"/>
+            </div>
+            <div class="space white">
+                <input type="url" name="href" placeholder="Lien http"/>
+            </div>
+            <div class="space white no-padding">
+                <input type="text" name="infos1" placeholder="Infos n°1"/>
+            </div>
+            <div class="space white no-padding">
+                <input type="text" name="infos2" placeholder="Infos n°2"/>
+            </div>
+            <div class="space white no-padding">
+                <input type="text" name="infos3" placeholder="Infos n°3"/>
+            </div>
+            <div class="space white">
+                <input type="text" name="description" placeholder="Description du projet"/>
+            </div>
+            <div class="space white no-padding">
+                <input class="button" type="submit" value="Envoyer"/>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block seeEditProduction %}
+    {% for editProduct in editProduction %}
+    <div class="product space white newProduct">
+        <h3>Modifier un projet</h3>
+        <form method="post" action="<?php echo 'index.php?action=sendEditProduction&id='.$data['id'].'' ?>">
+            <div class="space white no-padding">
+                <input type="text" name="name" value="<?= $data['name'] ?>"/>
+            </div>
+            <div class="space white">
+                <input type="url" name="href" value="<?= $data['href'] ?>"/>
+            </div>
+            <div class="space white no-padding">
+                <input type="text" name="infos1" value="<?= $data['infos1'] ?>"/>
+            </div>
+            <div class="space white no-padding">
+                <input type="text" name="infos2" value="<?= $data['infos2'] ?>"/>
+            </div>
+            <div class="space white no-padding">
+                <input type="text" name="infos3" value="<?= $data['infos3'] ?>"/>
+            </div>
+            <div class="space white">
+                <input type="text" name="description" value="<?= $data['description'] ?>"/>
+            </div>
+            <div class="space white no-padding">
+                <input class="button" type="submit" value="Modifier"/>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+{% endblock %}

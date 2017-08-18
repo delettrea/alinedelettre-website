@@ -217,31 +217,6 @@ header .button{
     margin-top: 8px;
 }
 
-#P1{
-    background-image: url("img/CaptureWebagency.png");
-    background-size: cover;
-}
-
-#P2{
-    background-image: url("img/captureofficetourisme.png");
-    background-size: cover;
-}
-
-#P3{
-    background-image: url("img/Capturesiteperso.png");
-    background-size: cover;
-}
-
-#P4{
-    background-image: url("img/captureappvelo.png");
-    background-size: cover;
-}
-
-#P5{
-    background-image: url("img/captureappvelo.png");
-    background-size: cover;
-}
-
 .section1 > div:nth-child(4){
     justify-content: center;
 }

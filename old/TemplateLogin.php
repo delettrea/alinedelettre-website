@@ -1,8 +1,5 @@
 <?php
-
-namespace App\Vue;
-
-class TemplateLogin extends TemplateLegal {
+class TemplateLogin {
 
     /**
      * Formulaire de connexion au site.
