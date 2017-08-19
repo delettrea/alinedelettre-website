@@ -123,10 +123,21 @@ header ul{
 }
 
 header li{
+    margin: 20px 0;
+}
+
+header li a{
     border: 1px solid white;
     padding: 10px 36px 6px 36px;
-    margin: 9px 0;
 }
+
+header li:hover a{
+    background-color: white;
+}
+
+header li:hover a{
+     color: #00bcd4;
+ }
 
 header li a {
     color: white;
@@ -190,7 +201,7 @@ header .button{
     height:58vw;
 }
 
-.production .info{
+.production .info {
     background-image: url("img/testProduct.png");
     background-size: cover;
     color: white;
@@ -200,6 +211,13 @@ header .button{
     align-items: center;
     justify-content: space-around;
 }
+
+
+.product a{
+    height: 289px;
+    width: 444px;
+}
+
 
 .production a{
     margin: 0;

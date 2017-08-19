@@ -3,24 +3,22 @@
 {% block contact %}
     <form class="form" method="post" action="index.php?action=sendContact">
     <div class="space white name">
-        <label>Votre nom : </label><input type="text" name="name" placeholder=""/>
+        <label>Votre nom : </label><input type="text" name="name" id="name" placeholder=""/>
     </div>
     <div class="space white email">
-        <label>Votre email : </label><input type="email" name="email" placeholder=""/>
+        <label>Votre email : </label><input type="email" name="email" id="email" placeholder=""/>
     </div>
     <div class="space white object">
-        <label>Sujet de votre message : </label><input type="text" name="object" placeholder=""/>
+        <label>Sujet de votre message : </label><input type="text" name="object" id="object" placeholder=""/>
     </div>
     <div class="space white">
         <label>Votre message : </label>
-        <textarea name="mail" class="article"></textarea>
+        <textarea name="mail" id="mail" class="article"></textarea>
     </div>
     <div class="space white">
-        <input class="button" type="submit" value="Contacter" />
+        <input class="button buttonContact" type="submit" value="Contacter" />
     </div>
     </form>
-    <div class="message">
-        
-    </div>
+    <div id="messages" class="space white"></div>
 {% endblock %}
 

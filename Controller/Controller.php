@@ -14,7 +14,7 @@ class Controller extends HomeController {
             $this->action($action,$twig);
         }
         else{
-            echo $twig->render('adminProduction.twig', $this->seeProduction());
+            echo $twig->render('header.twig', $this->seeProduction());
         }
     }
 
@@ -41,14 +41,12 @@ class Controller extends HomeController {
            $this->sendEditProduction();
            echo $twig->render('adminProduction.twig', $this->seeProduction());
         }
-        elseif($action == "deleteProduction"){
+        elseif($action == "deleteProduction") {
             $this->deleteProduction();
             echo $twig->render('adminProduction.twig', $this->seeProduction());
-        }elseif($action == "sendContact"){
-            $this->sendEmail();
-            echo $twig->render('adminProduction.twig', $this->seeProduction());
+        }
+        elseif($action == "sendContact") {
+           $this->testEmail();
         }
     }
-
-
 }
