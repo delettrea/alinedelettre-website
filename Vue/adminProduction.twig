@@ -61,27 +61,27 @@
 {% endblock %}
 
 {% block seeEditProduction %}
-    {% for editProduct in editProduction %}
+    {% for editProduct in edit %}
     <div class="product space white newProduct">
         <h3>Modifier un projet</h3>
-        <form method="post" action="<?php echo 'index.php?action=sendEditProduction&id='.$data['id'].'' ?>">
+        <form method="post" action="index.php?action=sendEditProduction&id={{ editProduct.id }}">
             <div class="space white no-padding">
-                <input type="text" name="name" value="<?= $data['name'] ?>"/>
+                <input type="text" name="name" value="{{ editProduct.name }}"/>
             </div>
             <div class="space white">
-                <input type="url" name="href" value="<?= $data['href'] ?>"/>
+                <input type="url" name="href" value="{{ editProduct.href }}"/>
             </div>
             <div class="space white no-padding">
-                <input type="text" name="infos1" value="<?= $data['infos1'] ?>"/>
+                <input type="text" name="infos1" value="{{ editProduct.infos1 }}"/>
             </div>
             <div class="space white no-padding">
-                <input type="text" name="infos2" value="<?= $data['infos2'] ?>"/>
+                <input type="text" name="infos2" value="{{ editProduct.infos2 }}"/>
             </div>
             <div class="space white no-padding">
-                <input type="text" name="infos3" value="<?= $data['infos3'] ?>"/>
+                <input type="text" name="infos3" value="{{ editProduct.infos3 }}"/>
             </div>
             <div class="space white">
-                <input type="text" name="description" value="<?= $data['description'] ?>"/>
+                <input type="text" name="description" value="{{ editProduct.description }}"/>
             </div>
             <div class="space white no-padding">
                 <input class="button" type="submit" value="Modifier"/>

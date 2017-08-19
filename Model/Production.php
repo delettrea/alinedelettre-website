@@ -23,12 +23,18 @@ class Production extends Login {
             $session = array('session' => $this->session());
             $seeProduction = array_merge($seeProduction,$session);
         }
+        if(isset($_GET['action'])){
+            $action = array('action' => $_GET['action']);
+            $seeProduction = array_merge($seeProduction, $action);
+        }
         return $seeProduction;
     }
 
     public function editProduction(){
-            $array = array('edit' => $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID()));
-            return $array;
+            $test = $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID());
+            $array = array('edit' => $test);
+            $arrayMerge  = array_merge($array, $this->seeProduction());
+            return $arrayMerge;
     }
 
     public function sendEditProduction(){

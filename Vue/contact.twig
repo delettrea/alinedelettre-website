@@ -1,7 +1,7 @@
 {% extends 'production.twig' %}
 
 {% block contact %}
-    <form class="form" method="post" action="index.php?action=contact">
+    <form class="form" method="post" action="index.php?action=sendContact">
     <div class="space white name">
         <label>Votre nom : </label><input type="text" name="name" placeholder=""/>
     </div>
@@ -19,5 +19,8 @@
         <input class="button" type="submit" value="Contacter" />
     </div>
     </form>
+    <div class="message">
+        
+    </div>
 {% endblock %}
 

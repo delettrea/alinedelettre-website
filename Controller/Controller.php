@@ -18,7 +18,6 @@ class Controller extends HomeController {
         }
     }
 
-
     protected function action($action,$twig){
         if ($action == "legal") {
             echo $twig->render('legal.twig');
@@ -36,7 +35,7 @@ class Controller extends HomeController {
             $this->sendProduction($twig);
         }
         elseif($action == "editProduction") {
-            echo $twig->render('adminProduction.twig', $this->seeProduction(), $this->editProduction());
+            echo $twig->render('adminProduction.twig', $this->editProduction());
         }
         elseif($action == "sendEditProduction"){
            $this->sendEditProduction();
@@ -44,6 +43,9 @@ class Controller extends HomeController {
         }
         elseif($action == "deleteProduction"){
             $this->deleteProduction();
+            echo $twig->render('adminProduction.twig', $this->seeProduction());
+        }elseif($action == "sendContact"){
+            $this->sendEmail();
             echo $twig->render('adminProduction.twig', $this->seeProduction());
         }
     }

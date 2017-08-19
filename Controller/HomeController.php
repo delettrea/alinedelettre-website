@@ -12,28 +12,6 @@ class HomeController extends \App\Model\Contact {
         }
     }
 
-    public function prepareSendEmail(){
-        if (isset($_GET['action']) && $_GET['action'] == "contact"){
-            $this->sendEmail();
-            $this->seeContact();
-        }
-        else{
-            $this->seeContact();
-        }
-    }
-
-    public function prepareProduction(){
-        $this->sqlPrepare($this->sqlSeeProduction, $this->emptyArray);
-        $this->seeProduction();
-    }
-
-    /**
-     * Prepare la fonction pour se connecter au site.
-     */
-    public function prepareLogin(){
-        $this->seeLogin();
-    }
-
     /**
      * Permet de vérifier si tous les paramètres de connexion sont exacts.
      * @param $function string à lancer si les données sont fausses.
