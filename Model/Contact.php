@@ -15,10 +15,10 @@ class Contact extends Production {
      */
     public function message(){
         extract($_POST);
-        $this->message = $mail;
+        $this->message = htmlspecialchars($mail);
         $this->objet = htmlspecialchars($object);
         $this->expediteur = htmlspecialchars($name);
-        $this->email = $email;
+        $this->email = htmlspecialchars($email);
     }
 
     /**
@@ -36,8 +36,47 @@ class Contact extends Production {
         $headers .= 'From: "Expediteur"<' . $expediteur . '>' . "\n";
         $headers .= 'Delivered-to: ' . $destinataire . "\n";
         $message = '<div style="width: 100%; text-align: center; font-weight: bold">' . $this->message . '</div>';
-        mail($destinataire, $objet, $message, $headers);
+        if(mail($destinataire, $objet, $message, $headers)){
+            return '<div class="success"> Merci, votre message a bien été envoyé.</div>';
+        }else{
+            return '<div class="error"> Désolé, votre message n\'a pas pu être envoyé.</div>';
+        }
 
     }
+
+    protected function testEmail(){
+        if(empty($_POST['name'])){
+            echo '<div class="error"> Veuillez renseigner un nom</div>';
+            exit();
+        }
+        elseif(strlen($_POST['name']) >= 255){
+            echo '<div class="error"> Votre nom ne peut pas excéder 255 caractères.</div>';
+            exit();
+        }
+        elseif (empty($_POST['email'])){
+            echo '<div class="error"> Veuillez renseigner une adresse email</div>';
+            exit();
+        }
+        elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false){
+            echo '<div class="error"> Veuillez renseigner une adresse email valide</div>';
+            exit();
+        }
+        elseif (empty($_POST['object'])){
+            echo '<div class="error"> Veuillez renseigner un sujet</div>';
+            exit();
+        }
+        elseif(strlen($_POST['object']) >= 255){
+            echo '<div class="error"> Votre sujet ne peut pas excéder 255 caractères.</div>';
+            exit();
+        }
+        elseif (empty($_POST['mail'])){
+            echo '<div class="error"> Veuillez renseigner un message</div>';
+            exit();
+        }
+        else {
+            echo $this->sendEmail();
+        }
+    }
+
 
 }

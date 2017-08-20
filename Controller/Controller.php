@@ -26,7 +26,7 @@ class Controller extends HomeController {
             echo $twig->render('login.twig', $this->seeProduction());
         }
         elseif($action == "sendLogin"){
-            $this->log($this->prepareSendLogin(), $twig);
+            echo $this->testLogin();
         }
         elseif($action == "logout"){
             $this->logout();
