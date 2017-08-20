@@ -1,4 +1,6 @@
 {% block header %}{% endblock %}
+
+{% block contain %}
 <div class="page">
         <section class="section section1">
             <div class="space white">
@@ -6,7 +8,7 @@
             </div>
             <div class="space white">
                 <p>Jeune femme dynamique passionnée d'informatique.<br>Je suis étudiante sur Openclassrooms en Développement Web.</p>
-                <a href="https://github.com/delettrea" class="button"><i class="fa fa-github" aria-hidden="true"></i> mon GitHub</a>
+                <a href="https://github.com/delettrea" target="_blank" class="button"><i class="fa fa-github" aria-hidden="true"></i> mon GitHub</a>
             </div>
             <div class="space black">
                 <p>Mes diplômes</p>
@@ -53,4 +55,5 @@
             {% block contact %}{% endblock %}
         </section>
     </div>
+{% endblock %}
 {% block footer %}{% endblock %}

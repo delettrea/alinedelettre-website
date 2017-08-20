@@ -14,16 +14,16 @@ class Controller extends HomeController {
             $this->action($action,$twig);
         }
         else{
-            echo $twig->render('header.twig', $this->seeProduction());
+            echo $twig->render('footer.twig', $this->seeProduction());
         }
     }
 
     protected function action($action,$twig){
-        if ($action == "legal") {
+        if ($action == "ml") {
             echo $twig->render('legal.twig');
         }
         elseif ($action == "login"){
-            echo $twig->render('login.twig');
+            echo $twig->render('login.twig', $this->seeProduction());
         }
         elseif($action == "sendLogin"){
             $this->log($this->prepareSendLogin(), $twig);

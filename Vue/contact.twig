@@ -1,7 +1,7 @@
-{% extends 'production.twig' %}
+{% extends 'adminProduction.twig' %}
 
 {% block contact %}
-    <form class="form" method="post" action="index.php?action=sendContact">
+    <form class="formContact" method="post" action="index.php?action=sendContact">
     <div class="space white name">
         <label>Votre nom : </label><input type="text" name="name" id="name" placeholder=""/>
     </div>
@@ -16,9 +16,10 @@
         <textarea name="mail" id="mail" class="article"></textarea>
     </div>
     <div class="space white">
-        <input class="button buttonContact" type="submit" value="Contacter" />
+        <input class="button buttonForm" type="submit" value="Contacter" />
     </div>
     </form>
     <div id="messages" class="space white"></div>
 {% endblock %}
+
 
