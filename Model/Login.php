@@ -75,9 +75,11 @@ class Login extends Sql {
             if($data['findLogin'] == 1){
                 $_SESSION['login'] = $data['login'];
                 $_SESSION['type'] = $data['type'];
+                echo '<p class="success"> Connexion réussie </p>';
             }
             elseif ($data['findLogin'] != 1){
-                return '<p class="error bottom-error">connexion impossible, veuillez verifier votre pseudo et votre mot de passe</p>';
+                echo '<p class="error">Connexion impossible, veuillez verifier votre pseudo et votre mot de passe</p>';
+                exit();
             }
         }
     }

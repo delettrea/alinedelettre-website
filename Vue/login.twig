@@ -2,7 +2,7 @@
 
 {%  block contain %}
     <section class="log">
-        <form class="formLogin" method="post" action="index.php?action=sendLogin">
+        <form id="form" class="formLogin" method="post" action="index.php?action=sendLogin">
             <div class="space white">
                 <h3>Connexion</h3>
             </div>
@@ -16,6 +16,6 @@
                 <input id="button" class="button" type="submit" value="Connexion" />
             </div>
         </form>
-        <div class="messages error space white"></div>
+        <div id="messages" class="error space white"></div>
     </section>
 {% endblock %}
