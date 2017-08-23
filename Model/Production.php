@@ -6,6 +6,7 @@ namespace App\Model;
 class Production extends Login {
 
     public $sqlSeeProduction = "SELECT * FROM `production`";
+    public $sqlSeeJustThisProduction = "SELECT * FROM `production` WHERE `infos1` = :infos  OR `infos2` = :infos OR `infos3` = :infos";
     public $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:id";
     public $sqlDeleteProduction ="DELETE FROM `production` WHERE id=:id";
     public $sqlSendEditProduct = "UPDATE `production` SET href=:href,name=:name,description=:description,infos1=:infos1,infos2=:infos2,infos3=:infos3 WHERE id=:id";
@@ -13,22 +14,36 @@ class Production extends Login {
     public $sqlNewProduction ="INSERT INTO `production`(`href`, `name`, `description`, `infos1`, `infos2`, `infos3`) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
 
 
+    public function testProduction(){
+        $array = $this->seeProduction($this->sqlSeeProduction);
+        return $array;
+    }
 
-    public function seeProduction(){
-        $seeProduction = array('productions' => $this->sqlPrepare($this->sqlSeeProduction));
-        $nbProductionDelete = array('nbProductionDelete' => $this->sqlPrepare($this->sqlSelectId));
-        $nbProduction = array('nbProduction' => $this->sqlPrepare($this->sqlSelectId));
-        $seeProduction = array_merge($seeProduction, $nbProduction, $nbProductionDelete);
+    public function seeProduction($sql){
+        $array = array('productions' => $this->sqlPrepare($sql));
+        $this->productionAdmin($array);
+        $this->pageAction($array);
+        return $array;
+    }
+
+    public function productionAdmin($array){
         if(isset($_SESSION['type']) && $_SESSION['type'] == 'admin'){
             $session = array('session' => $this->session());
-            $seeProduction = array_merge($seeProduction,$session);
+            $nbProductionDelete = array('nbProductionDelete' => $this->sqlPrepare($this->sqlSelectId));
+            $nbProduction = array('nbProduction' => $this->sqlPrepare($this->sqlSelectId));
+            $array = array_merge($array, $nbProduction, $nbProductionDelete,$session);
+            return $array;
         }
+    }
+
+    public function pageAction($array){
         if(isset($_GET['action'])){
             $action = array('action' => $_GET['action']);
-            $seeProduction = array_merge($seeProduction, $action);
+            $array = array_merge($array, $action);
+            return $array;
         }
-        return $seeProduction;
     }
+
 
     public function editProduction(){
             $test = $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID());

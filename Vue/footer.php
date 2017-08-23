@@ -1,7 +1,4 @@
-<script src="menu.js"></script>
-<script src="production.js"></script>
-<script src="contact.js"></script>
-<script src="index.js"></script>
+<script src="site.js"></script>
 </body>
 
 </html>

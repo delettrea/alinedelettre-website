@@ -14,7 +14,7 @@ class Controller extends HomeController {
             $this->action($action,$twig);
         }
         else{
-            echo $twig->render('footer.twig', $this->seeProduction());
+            echo $twig->render('footer.twig', $this->testProduction());
         }
     }
 
