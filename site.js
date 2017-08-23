@@ -1,3 +1,9 @@
+// function for see production's filter.
+
+
+
+
+
 // function for see error Contact.
 $(document).ready(function () {
     $(".formContact").submit(function () {
@@ -37,7 +43,7 @@ $(document).ready(function () {
                 password: password
             }, function (data) {
                 $("#messages").html(data);
-                if(data.match('.succes') != null) {
+                if(data.match('.succes') !== null) {
                     document.location.href = 'index.php';
                 }
                 $("#messages").slideDown('slow');

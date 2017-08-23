@@ -15,12 +15,19 @@ class Production extends Login {
 
 
     public function testProduction(){
-        $array = $this->seeProduction($this->sqlSeeProduction);
-        return $array;
+        if(isset($_POST['filter']) && $_POST['filter'] === 'html'){
+            $arraySql = array("infos" => "html");
+            $array = $this->seeProduction($this->sqlSeeJustThisProduction, $arraySql);
+            return $array;
+        }
+        else {
+            $array = $this->seeProduction($this->sqlSeeProduction);
+            return $array;
+        }
     }
 
-    public function seeProduction($sql){
-        $array = array('productions' => $this->sqlPrepare($sql));
+    public function seeProduction($sql, $arraySql = null){
+        $array = array('productions' => $this->sqlPrepare($sql, $arraySql));
         $this->productionAdmin($array);
         $this->pageAction($array);
         return $array;
