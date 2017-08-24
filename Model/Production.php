@@ -14,20 +14,21 @@ class Production extends Login {
     public $sqlNewProduction ="INSERT INTO `production`(`href`, `name`, `description`, `infos1`, `infos2`, `infos3`) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
 
 
-    public function testProduction(){
-        if(isset($_POST['filter']) && $_POST['filter'] === 'html'){
-            $arraySql = array("infos" => "html");
-            $array = $this->seeProduction($this->sqlSeeJustThisProduction, $arraySql);
-            return $array;
+    public function testFilterProduction($twig){
+        if(isset($_GET['action'])){
+            $testounet = array("infos" => 'css');
+            $array = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, array("infos" => 'css')));
+            echo $twig->render('production.twig', $array);
         }
         else {
-            $array = $this->seeProduction($this->sqlSeeProduction);
-            return $array;
+            $array = array('productions' => $this->sqlPrepare($this->sqlSeeProduction));
+            echo $twig->render('production.twig', $array);
         }
     }
 
-    public function seeProduction($sql, $arraySql = null){
-        $array = array('productions' => $this->sqlPrepare($sql, $arraySql));
+
+    public function seeProduction(){
+        $array= array();
         $this->productionAdmin($array);
         $this->pageAction($array);
         return $array;
@@ -53,10 +54,10 @@ class Production extends Login {
 
 
     public function editProduction(){
-            $test = $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID());
-            $array = array('edit' => $test);
-            $arrayMerge  = array_merge($array, $this->seeProduction());
-            return $arrayMerge;
+        $test = $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID());
+        $array = array('edit' => $test);
+        $arrayMerge  = array_merge($array, $this->testProduction());
+        return $arrayMerge;
     }
 
     public function sendEditProduction(){

@@ -14,7 +14,7 @@ class Controller extends HomeController {
             $this->action($action,$twig);
         }
         else{
-            echo $twig->render('footer.twig', $this->testProduction());
+            echo $twig->render('footer.twig', $this->seeProduction());
         }
     }
 
@@ -46,7 +46,9 @@ class Controller extends HomeController {
             echo $twig->render('adminProduction.twig', $this->seeProduction());
         }
         elseif($action == "sendContact") {
-           $this->testEmail();
+            $this->testEmail();
+        }elseif($action == "test") {
+            $this->testFilterProduction($twig);
         }
     }
 }

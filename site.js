@@ -1,7 +1,25 @@
 // function for see production's filter.
-
-
-
+//var test = 'html';
+//$("#ulProduction").find('.infos').each(function () {
+    //var span = 'html';
+    $(document).ready(function () {
+        $(".rowProduct").html();
+        $("#html").click(function () {
+            var action = 'index.php?action=test';
+            var test = $("#html").attr('id');
+            console.log(test);
+            $(".rowProduct").slideUp('800', function () {
+                $.get(action, {
+                    test: test
+                }, function (data) {
+                    alert(data);
+                    $(".rowProduct").html(data);
+                    $(".rowProduct").slideDown('slow');
+                });
+            });
+            return false;
+        })
+    });
 
 
 // function for see error Contact.
