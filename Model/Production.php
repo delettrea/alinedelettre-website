@@ -15,20 +15,20 @@ class Production extends Login {
 
 
     public function testFilterProduction($twig){
-        if(isset($_GET['action'])){
-            $testounet = array("infos" => 'css');
-            $array = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, array("infos" => 'css')));
+        if(isset($_GET['test'])){
+            extract($_GET);
+            $info = $test;
+            $array = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, array("infos" => $info)));
             echo $twig->render('production.twig', $array);
         }
-        else {
+        else{
             $array = array('productions' => $this->sqlPrepare($this->sqlSeeProduction));
             echo $twig->render('production.twig', $array);
         }
     }
 
-
     public function seeProduction(){
-        $array= array();
+        $array= array("productions" => $this->sqlPrepare($this->sqlSeeProduction));
         $this->productionAdmin($array);
         $this->pageAction($array);
         return $array;

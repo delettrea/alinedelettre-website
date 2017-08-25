@@ -47,7 +47,8 @@ class Controller extends HomeController {
         }
         elseif($action == "sendContact") {
             $this->testEmail();
-        }elseif($action == "test") {
+        }
+        elseif($action == "test") {
             $this->testFilterProduction($twig);
         }
     }

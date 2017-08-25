@@ -1,25 +1,43 @@
 // function for see production's filter.
-//var test = 'html';
-//$("#ulProduction").find('.infos').each(function () {
-    //var span = 'html';
-    $(document).ready(function () {
-        $(".rowProduct").html();
-        $("#html").click(function () {
-            var action = 'index.php?action=test';
-            var test = $("#html").attr('id');
-            console.log(test);
-            $(".rowProduct").slideUp('800', function () {
-                $.get(action, {
-                    test: test
-                }, function (data) {
-                    alert(data);
-                    $(".rowProduct").html(data);
-                    $(".rowProduct").slideDown('slow');
-                });
-            });
-            return false;
-        })
+
+test();
+
+function testAccueil() {
+    var action = 'index.php?action=test';
+    var test = 'all';
+    $.get(action, {
+        test: test
+    }, function (data) {
+        $(".rowProduct").html(data);
     });
+}
+
+function test() {
+    $("#html").click(function () {
+        var action = 'index.php?action=test';
+        var test = 'html';
+        $(".rowProduct").slideUp('800', function () {
+            $.get(action, {
+                test: test
+            }, function (data) {
+                $(".rowProduct").html(data);
+                $(".rowProduct").slideDown('slow');
+            });
+        });
+    });
+    $("#java").click(function () {
+        var action = 'index.php?action=test';
+        var test = 'java';
+        $(".rowProduct").slideUp('800', function () {
+            $.get(action, {
+                test: test
+            }, function (data) {
+                $(".rowProduct").html(data);
+                $(".rowProduct").slideDown('slow');
+            });
+        });
+    })
+}
 
 
 // function for see error Contact.
@@ -75,13 +93,13 @@ $(document).ready(function () {
 });
 
 //function for hide website's Menu
-    $(document).ready(function (){
+$(document).ready(function (){
     $("#nav").hide();
     $("#menu").click(function () {
         $("#nav").toggle(1000);
         $(".empty").toggle(1000);
     })
-    });
+});
 
 
 // function for hide product description

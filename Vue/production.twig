@@ -1,12 +1,11 @@
 {% block seeProduction %}
-    <div class="rowProduct">
     {% for product in productions %}
         <div class="product space white">
             <a href="{{ product.href }}" target="_blank">
                 <div class="production" id="{{ 'P'~ product.id }}" style="background-image:url(img/{{ product.backgroundName }}.jpg); background-size:cover">
                     <div class="{{ 'P'~ product.id }} info">
                         <p class="name">{{ product.name }}</p>{% if session %}<p>Projet n°{{ product.id }}{% endif %}</p>
-                        <ul id="ulProduction" class="fa-ul delete">
+                        <ul id="filter" class="fa-ul delete">
                             <li class="infos"><i class="fa-li fa fa-check-square"></i>{{ product.infos1 }}</li>
                             <li class="infos"><i class="fa-li fa fa-check-square"></i>{{ product.infos2 }}</li>
                             <li class="infos"><i class="fa-li fa fa-check-square"></i>{{ product.infos3 }}</li>
@@ -22,5 +21,4 @@
         {% block seeDeleteEditProduct %}{% endblock %}
         {% block seeEditProduction %}{% endblock %}
     {% endif %}
-    </div>
 {% endblock %}
