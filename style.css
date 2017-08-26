@@ -95,10 +95,12 @@ li{
 
 .presentation{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 62%;
+    width: 80%;
     margin-top: 12px;
+    text-align: center;
 }
 
 .list-diplomes li{
@@ -106,7 +108,7 @@ li{
 }
 
 .row{
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .error{
@@ -240,6 +242,10 @@ header .button{
     padding-bottom: 16px;
 }
 
+.section2, .section3{
+    margin-top: 20px;
+}
+
 /*section 2*/
 
 .card {
@@ -282,6 +288,21 @@ header .button{
     text-align: center;
 }
 
+form input[type=text],form input[type=email],form input[type=password],form input[type=url], textarea{
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 /*--- ICONS ---*/
 
 .icon{
@@ -290,7 +311,7 @@ header .button{
 }
 
 .responsive img{
-    width: 350px;
+    width: 100%;
 }
 
 .section3 textarea{
@@ -331,6 +352,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 
@@ -372,6 +394,8 @@ footer{
     background-attachment: fixed;
 }
 
+/*--- DIAGONAL DIV ---*/
+
 
 @media (min-width: 736px){
     .header {
@@ -394,15 +418,23 @@ footer{
     .empty{
         height: 36vh;
     }
-
-}
-
-@media (min-width: 1000px){
+    .presentation{
+        flex-direction: row;
+    }
+    .row{
+        flex-direction: row;
+    }
+    .responsive img{
+        width: 350px;
+    }
     .rowProduct{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
     }
+}
+
+@media (min-width: 1000px){
     .section{
         max-width: 1000px;
     }
@@ -416,5 +448,8 @@ footer{
     }
     .empty{
         height: 31vh;
+    }
+    .presentation{
+        width: 62%;
     }
 }
