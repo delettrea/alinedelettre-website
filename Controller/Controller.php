@@ -35,15 +35,15 @@ class Controller extends HomeController {
             $this->sendProduction($twig);
         }
         elseif($action == "editProduction") {
-            echo $twig->render('adminProduction.twig', $this->editProduction());
+            echo $twig->render('footer.twig', $this->editProduction());
         }
         elseif($action == "sendEditProduction"){
            $this->sendEditProduction();
-           echo $twig->render('adminProduction.twig', $this->seeProduction());
+           echo $twig->render('footer.twig', $this->seeProduction());
         }
         elseif($action == "deleteProduction") {
             $this->deleteProduction();
-            echo $twig->render('adminProduction.twig', $this->seeProduction());
+            echo $twig->render('footer.twig', $this->seeProduction());
         }
         elseif($action == "sendContact") {
             $this->testEmail();

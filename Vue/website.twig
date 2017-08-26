@@ -7,14 +7,19 @@
                 <h3>Présentation</h3>
             </div>
             <div class="space white">
+                <div class="presentation">
+                    <img class="portrait" src="https://avatars1.githubusercontent.com/u/29575195?v=4&s=460" alt="portrait">
+                    <div class="row">
                 <p>Jeune femme dynamique passionnée d'informatique.<br>Je suis étudiante sur Openclassrooms en Développement Web.</p>
                 <a href="https://github.com/delettrea" target="_blank" class="button"><i class="fa fa-github" aria-hidden="true"></i> mon GitHub</a>
+                    </div>
+                    </div>
             </div>
-            <div class="space black">
+            <div class="space white">
                 <p>Mes diplômes</p>
-                <ul>
+                <ul class="list-diplomes">
                     <li>Licence de Philosohpie</li>
-                    <li>Licence d'Adminsitration Publique</li>
+                    <li id="fade" >Licence d'Adminsitration Publique</li>
                     <li>Baccalauréat économique et social</li>
                 </ul>
             </div>
@@ -26,27 +31,45 @@
                 <i class="icon fa fa-linux  fa-2x" aria-hidden="true"></i>
             </div>
             <div class="space white row">
-                <div class="icon iconCenter">
-                    <i class="fa fa-desktop fa-2x" aria-hidden="true"></i>
-                    <i class=" fa fa-tablet fa-2x" aria-hidden="true"></i>
-                    <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
-                </div>
                 <p>
                     Tous mes sites web sont responsives, c'est-à-dire que l'on peut les utiliser sur toutes les plateformes du pc au téléphone mobile.
                 </p>
+                <div class="responsive">
+                    <img class="fade" src="img/imac-1999636_19221.png" alt="responsive">
+                </div>
             </div>
-            <div class="space white">
-                <a href="" class="button">Voir mes réalisations</a>
-                <a href="" class="button">Prendre contact</a>
+            <div class="space white fade">
+                <a href="" class="button fade">Voir mes réalisations</a>
+                <a href="" class="button fade">Prendre contact</a>
             </div>
         </section>
-        <section class="section section2">
+        <div class="bcg-parallax" data-stellar-background-ratio="0.5">
+        </div>
+        <section class="section section2 fade">
             <div class="space white">
                 <h3>Réalisations</h3>
             </div>
-            <div class="test space black"><p class="button" id="html">HTML</p><p class="button" id="java">Java</p></div>
+            <div class="space white">
+                <form class="formProduct" method="post" action="index.php?action=test">
+                    <input class="choice" type="radio" name="filter" value="all" id="all" /><label for="all"> Tout voir</label>
+                    <input class="choice" type="radio" name="filter" value="html" id="html" /><label for="html"> html</label>
+                    <input class="choice" type="radio" name="filter" value="css" id="css" /><label for="css"> css</label>
+                    <input class="choice" type="radio" name="filter" value="js" id="javaScript" /><label for="javaScript"> Java Script</label>
+                    <input class="choice" type="radio" name="filter" value="php" id="php" /><label for="php"> PHP</label>
+                    <input class="submitFilter" type="submit" value="Envoyer" />
+                </form>
+            </div>
             <div class="rowProduct"></div>
+                {% if session %}
+                    <div class="space white">
+                        <h3>Administration des réalisations</h3>
+                    </div>
+                    {% block seeNewProduction %}{% endblock %}
+                    {% block seeEditProduction %}{% endblock %}
+                {% endif %}
         </section>
+    <div class="second-parallax" data-stellar-background-ratio="0.5">
+    </div>
         <section class="section section3">
             <div class="space white">
                 <h3>Contact</h3>

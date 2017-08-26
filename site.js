@@ -1,44 +1,41 @@
+$(document).ready(function () {
+    $.stellar();
+});
+
 // function for see production's filter.
-
-test();
-
-function testAccueil() {
-    var action = 'index.php?action=test';
-    var test = 'all';
-    $.get(action, {
-        test: test
-    }, function (data) {
-        $(".rowProduct").html(data);
-    });
-}
-
-function test() {
+//  $("#all").attr('value')
     $("#html").click(function () {
-        var action = 'index.php?action=test';
-        var test = 'html';
-        $(".rowProduct").slideUp('800', function () {
-            $.get(action, {
-                test: test
-            }, function (data) {
-                $(".rowProduct").html(data);
-                $(".rowProduct").slideDown('slow');
+        $(".formProduct").submit(function () {
+            var action = $(this).attr('action');
+            var filter = 'html';
+            $(".rowProduct").slideUp('800', function () {
+                $.post(action, {
+                    filter: filter
+                }, function (data) {
+                    $(".rowProduct").html(data);
+                    $(".rowProduct").slideDown('slow');
+                });
             });
-        });
+            return false;
+        })
     });
-    $("#java").click(function () {
-        var action = 'index.php?action=test';
-        var test = 'java';
+
+
+$("#all").click(function () {
+    $(".formProduct").submit(function () {
+        var action = $(this).attr('action');
+        var filter = 'all';
         $(".rowProduct").slideUp('800', function () {
-            $.get(action, {
-                test: test
+            $.post(action, {
+                filter: filter
             }, function (data) {
                 $(".rowProduct").html(data);
                 $(".rowProduct").slideDown('slow');
             });
         });
+        return false;
     })
-}
-
+});
 
 // function for see error Contact.
 $(document).ready(function () {
@@ -80,7 +77,8 @@ $(document).ready(function () {
             }, function (data) {
                 $("#messages").html(data);
                 if(data.match('.succes') !== null) {
-                    document.location.href = 'index.php';
+                    setTimeout(function() {
+                        $(location).attr('href',"index.php")}, 800);
                 }
                 $("#messages").slideDown('slow');
                 $(".loader").fadeOut();
@@ -92,6 +90,8 @@ $(document).ready(function () {
 
 });
 
+
+
 //function for hide website's Menu
 $(document).ready(function (){
     $("#nav").hide();
@@ -101,10 +101,16 @@ $(document).ready(function (){
     })
 });
 
+// test
+$(document).ready(function () {
+        var controller = new ScrollMagic.Controller();
+        var ourScene = new ScrollMagic.Scene({
+            triggerElement: '#fade'
+        })
+            .setClassToggle('.fade', 'fade-in')
+            .addIndicators()
+            .addTo(controller);
 
-// function for hide product description
-function seeProduct($number) {
-    $("#P"+$number).hover(function () {
-        $(".P"+$number).slideToggle();
-    })}
+});
+
 

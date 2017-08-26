@@ -1,34 +1,4 @@
-{% extends 'production.twig' %}
-
-
-{% block seeDeleteEditProduct %}
-    <div class="product space white newProduct">
-        <h3>Supprimer un projet</h3>
-        <form class="choices" method="post" action="index.php?action=deleteProduction">
-            <label for="id">Choisir le projet à surpprimer</label><br />
-            <select name="id" id="deleteID">
-                {% for nbProductDelete in nbProductionDelete %}
-                    <option value="{{ nbProductDelete.id }}">{{ nbProductDelete.id }}</option>
-                {% endfor %}
-            </select>
-            <div class="space white no-padding">
-                <input class="button" type="submit" value="Supprimer"/>
-            </div>
-        </form>
-        <h3>Modifier un projet</h3>
-        <form class="choices" method="post" action="index.php?action=editProduction">
-            <label for="id">Choisir le projet à surpprimer</label><br />
-            <select name="id" id="editID">
-                {% for nbProduct in nbProduction %}
-                    <option value="{{ nbProduct.id }}">{{ nbProduct.id }}</option>
-                {% endfor %}
-            </select>
-            <div class="space white no-padding">
-                <input class="button" type="submit" value="Modifier"/>
-            </div>
-        </form>
-    </div>
-{% endblock %}
+{% extends 'website.twig' %}
 
 
 {% block seeNewProduction %}

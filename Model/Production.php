@@ -15,48 +15,36 @@ class Production extends Login {
 
 
     public function testFilterProduction($twig){
-        if(isset($_GET['test'])){
-            extract($_GET);
-            $info = $test;
-            $array = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, array("infos" => $info)));
-            echo $twig->render('production.twig', $array);
-        }
-        else{
-            $array = array('productions' => $this->sqlPrepare($this->sqlSeeProduction));
-            echo $twig->render('production.twig', $array);
-        }
+      if($_POST['filter'] === 'all'){
+          echo $twig->render('production.twig', $this->seeProduction());
+      }
+      elseif ($_POST['filter'] === 'html'){
+          extract($_POST);
+          $infos = array("infos" => $filter);
+          $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, $infos));
+          echo $twig->render('production.twig', $sqlFiltre);
+      }
     }
 
     public function seeProduction(){
         $array= array("productions" => $this->sqlPrepare($this->sqlSeeProduction));
-        $this->productionAdmin($array);
-        $this->pageAction($array);
-        return $array;
-    }
-
-    public function productionAdmin($array){
         if(isset($_SESSION['type']) && $_SESSION['type'] == 'admin'){
             $session = array('session' => $this->session());
             $nbProductionDelete = array('nbProductionDelete' => $this->sqlPrepare($this->sqlSelectId));
             $nbProduction = array('nbProduction' => $this->sqlPrepare($this->sqlSelectId));
             $array = array_merge($array, $nbProduction, $nbProductionDelete,$session);
-            return $array;
         }
-    }
-
-    public function pageAction($array){
         if(isset($_GET['action'])){
             $action = array('action' => $_GET['action']);
             $array = array_merge($array, $action);
-            return $array;
         }
+        return $array;
     }
-
 
     public function editProduction(){
         $test = $this->sqlPrepare($this->sqlSeeEditProduction, $this->arrayPostID());
         $array = array('edit' => $test);
-        $arrayMerge  = array_merge($array, $this->testProduction());
+        $arrayMerge  = array_merge($array, $this->seeProduction());
         return $arrayMerge;
     }
 
@@ -82,7 +70,7 @@ class Production extends Login {
     }
 
     public function arrayPostID(){
-        $arrayEditProduct = array('id' => $_POST['id']);
+        $arrayEditProduct = array('id' => $_GET['id']);
         return $arrayEditProduct;
     }
 
