@@ -1,19 +1,17 @@
-{% extends 'website.twig' %}
-
-{% block seeProduction %}
+{% block content %}
     {% for product in productions %}
         <div class="card space white fade3">
             <img src="img/gradient-1336854_1920.jpg" alt="Avatar" style="width:100%">
-            <div class="container fade3">
+            <div class="container">
                 <p class="name">{{ product.name }}</p>
                 <p class="filter"><span>{{ product.infos1 }}</span>, <span>{{ product.infos2 }}</span>, <span>{{ product.infos3 }}</span></p>
                 <p>{{ product.description }}</p>
-        {% if session %}
-                <div class="space row">
-                <a class="button" href="index.php?action=deleteProduction&id={{ product.id }}">Supprimer</a>
-                <a class="button" href="index.php?action=editProduction&id={{ product.id }}">Modifier</a>
-                </div>
-        {% endif %}
+                {% if session %}
+                    <div class="space row">
+                        <a class="button" href="index.php?action=deleteProduction&id={{ product.id }}">Supprimer</a>
+                        <a class="button" href="index.php?action=editProduction&id={{ product.id }}">Modifier</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     {% endfor %}

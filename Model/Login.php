@@ -10,7 +10,7 @@ class Login extends Sql {
 
 
     public function session(){
-            $session = $_SESSION['type'];
+            $session = $_SESSION;
             return $session;
     }
 

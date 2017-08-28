@@ -367,13 +367,13 @@ footer{
 
 /*--- SCROLL MAGIC ---*/
 
-.fade{
+.fade, .fade2, .fade3, .fade4, .fade5{
     opacity: 0;
     transform: translateY(50px);
     transition: all 1s ease-out;
 }
 
-.fade.fade-in{
+.fade.fade-in, .fade2.fade-in2, .fade3.fade-in3, .fade4.fade-in4, .fade5.fade-in5{
     opacity: 1;
     transform: translateY(0);
 }
@@ -381,20 +381,58 @@ footer{
 /*--- PARALLAX ---*/
 
 .bcg-parallax{
-    padding: 150px 0;
+    position: relative;
+    height:300px;
     background: url("img/keyboard-338513_1920.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
 .second-parallax{
-    padding: 150px 0;
+    height: 300px;
     background: url("img/iphone-563069_1920-1024x683.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-/*--- DIAGONAL DIV ---*/
+/*--- FILTER ---*/
+
+.all-filter{
+    flex-direction: row;
+    justify-content: center;
+    font-variant: all-small-caps;
+    font-size: 1.1em;
+}
+
+.all-filter span{
+    padding:0 12px;
+    cursor:  auto;
+
+}
+
+.all-filter p{
+    cursor:  pointer;
+}
+
+.no-filter{
+    display: none;
+}
+
+.css-filter{
+    display: flex;
+}
+
+/*--- TEST ---*/
+
+
+.test{
+    height: 100vh;
+    width: 190px;
+    background-color: black;
+    position: fixed;
+    z-index: 10;
+    top:0;
+}
 
 
 @media (min-width: 736px){
@@ -439,7 +477,6 @@ footer{
         max-width: 1000px;
     }
     .header{
-        max-width: 1920px;
         max-height: 1280px;
         margin: auto;
     }

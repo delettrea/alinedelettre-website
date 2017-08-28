@@ -2,39 +2,21 @@ $(document).ready(function () {
     $.stellar();
 });
 
+
 // function for see production's filter.
-//  $("#all").attr('value')
-    $("#html").click(function () {
-        $(".formProduct").submit(function () {
-            var action = $(this).attr('action');
-            var filter = 'html';
-            $(".rowProduct").slideUp('800', function () {
-                $.post(action, {
-                    filter: filter
-                }, function (data) {
-                    $(".rowProduct").html(data);
-                    $(".rowProduct").slideDown('slow');
-                });
-            });
-            return false;
-        })
-    });
-
-
-$("#all").click(function () {
-    $(".formProduct").submit(function () {
-        var action = $(this).attr('action');
-        var filter = 'all';
-        $(".rowProduct").slideUp('800', function () {
-            $.post(action, {
-                filter: filter
-            }, function (data) {
-                $(".rowProduct").html(data);
-                $(".rowProduct").slideDown('slow');
-            });
+$("#all, #html, #css, #javascript, #php").click(function () {
+    var input = $(this);
+    var filter = $(input).attr("id");
+    var action = 'index.php?action=test';
+    $(".rowProduct").slideUp('800', function () {
+        $.get(action, {
+            filter: filter
+        }, function (data) {
+            $(".rowProduct").html(data);
+            $(".rowProduct").slideDown('slow');
         });
-        return false;
-    })
+    });
+    return false;
 });
 
 // function for see error Contact.
@@ -101,16 +83,48 @@ $(document).ready(function (){
     })
 });
 
-// test
-$(document).ready(function () {
-        var controller = new ScrollMagic.Controller();
-        var ourScene = new ScrollMagic.Scene({
-            triggerElement: '#fade'
-        })
-            .setClassToggle('.fade', 'fade-in')
-            .addIndicators()
-            .addTo(controller);
+/*$(document).ready(function (){
+    $(".test").hide();
+    $("#menu").click(function () {
+        $(".test").animate({
+            width: "toggle"
+        });
+        //$(".empty").toggle(1000);
+    })
+});*/
 
+// Scroll Magic fade elements
+$(document).ready(function () {
+    var controller = new ScrollMagic.Controller();
+    var FirstScene = new ScrollMagic.Scene({
+        triggerElement: '#fade'
+    })
+        .setClassToggle('.fade', 'fade-in')
+        .addTo(controller);
+
+    var SecondScene = new ScrollMagic.Scene({
+        triggerElement: '#fade2'
+    })
+        .setClassToggle('.fade2', 'fade-in2')
+        .addTo(controller);
+
+    var ThirdScene = new ScrollMagic.Scene({
+        triggerElement: '#fade3'
+    })
+        .setClassToggle('.fade3', 'fade-in3')
+        .addTo(controller);
+
+    var FourthScene = new ScrollMagic.Scene({
+        triggerElement: '#fade4'
+    })
+        .setClassToggle('.fade4', 'fade-in4')
+        .addTo(controller);
+
+    var FifthScene = new ScrollMagic.Scene({
+        triggerElement: '#fade5'
+    })
+        .setClassToggle('.fade5', 'fade-in5')
+        .addTo(controller);
 });
 
 

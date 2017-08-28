@@ -6,7 +6,7 @@ namespace App\Model;
 class Production extends Login {
 
     public $sqlSeeProduction = "SELECT * FROM `production`";
-    public $sqlSeeJustThisProduction = "SELECT * FROM `production` WHERE `infos1` = :infos  OR `infos2` = :infos OR `infos3` = :infos";
+    public $sqlSeeJustThisProduction = "SELECT * FROM `production` WHERE `infos1` LIKE :infos  OR `infos2` LIKE :infos OR `infos3` LIKE :infos";
     public $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:id";
     public $sqlDeleteProduction ="DELETE FROM `production` WHERE id=:id";
     public $sqlSendEditProduct = "UPDATE `production` SET href=:href,name=:name,description=:description,infos1=:infos1,infos2=:infos2,infos3=:infos3 WHERE id=:id";
@@ -15,14 +15,14 @@ class Production extends Login {
 
 
     public function testFilterProduction($twig){
-      if($_POST['filter'] === 'all'){
-          echo $twig->render('production.twig', $this->seeProduction());
-      }
-      elseif ($_POST['filter'] === 'html'){
-          extract($_POST);
-          $infos = array("infos" => $filter);
+      if($_GET['filter'] !== 'all'){
+          extract($_GET);
+          $infos = array("infos" => '%'.$filter.'%');
           $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, $infos));
-          echo $twig->render('production.twig', $sqlFiltre);
+          echo $twig->render('product.twig', $sqlFiltre);
+      }
+      elseif ($_GET['filter'] === 'all'){
+          echo $twig->render('product.twig', $this->seeProduction());
       }
     }
 

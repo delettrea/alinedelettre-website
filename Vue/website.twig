@@ -43,24 +43,21 @@
                 <a href="" class="button fade">Prendre contact</a>
             </div>
         </section>
-        <div class="bcg-parallax fade" data-stellar-background-ratio="0.5">
+        <div id="fade2" class="bcg-parallax" data-stellar-background-ratio="0.5">
         </div>
-        <section class="section section2 fade skewedBox">
-            <div class="space white">
+        <section id="fade3" class="section section2 skewedBox">
+            <div class="space white fade2">
                 <h3>Réalisations</h3>
             </div>
-            <div class="space white">
-                <form class="formProduct" method="post" action="index.php?action=test">
-                    <input class="choice" type="radio" name="filter" value="all" id="all" /><label for="all"> Tout voir</label>
-                    <input class="choice" type="radio" name="filter" value="html" id="html" /><label for="html"> html</label>
-                    <input class="choice" type="radio" name="filter" value="css" id="css" /><label for="css"> css</label>
-                    <input class="choice" type="radio" name="filter" value="js" id="javaScript" /><label for="javaScript"> Java Script</label>
-                    <input class="choice" type="radio" name="filter" value="php" id="php" /><label for="php"> PHP</label>
-                    <input class="submitFilter" type="submit" value="Envoyer" />
-                </form>
+            <div class="all-filter space white fade2">
+                <p class="test-filter" id="html">html<span class="separation">/</span></p><p class="test-filter" id="css">css<span class="separation">/</span></p>
+                <p class="test-filter" id="javascript">JavaScript<span class="separation">/</span></p><p class="test-filter" id="php">php<span class="separation">/</span></p>
+                <p class="test-filter" id="all">all</p>
             </div>
-            <div class="rowProduct"></div>
-                {% if session %}
+            <div class="rowProduct">
+                {% block seeProduction %}{% endblock %}
+            </div>
+                {% if session%}
                     <div class="space white">
                         <h3>Administration des réalisations</h3>
                     </div>
@@ -68,10 +65,10 @@
                     {% block seeEditProduction %}{% endblock %}
                 {% endif %}
         </section>
-    <div class="second-parallax fade" data-stellar-background-ratio="0.5">
+    <div id="fade4"class="second-parallax" data-stellar-background-ratio="0.5">
     </div>
-        <section class="section section3">
-            <div class="space white">
+        <section class="section section3 fade4">
+            <div id="fade5" class="space white fade4">
                 <h3>Contact</h3>
             </div>
             {% block contact %}{% endblock %}
