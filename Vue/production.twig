@@ -3,9 +3,9 @@
 {% block seeProduction %}
     {% for product in productions %}
         <div class="card space white fade3">
-            <img src="img/gradient-1336854_1920.jpg" alt="Avatar" style="width:100%">
+            <a href="{{ product.href }}" target="_blank"><img src="img/p{{ product.id }}.jpg" alt="Avatar" style="width:100%"></a>
             <div class="container fade3">
-                <p class="name">{{ product.name }}</p>
+                <p class="nameProduct">{{ product.name }}</p>
                 <p class="filter"><span>{{ product.infos1 }}</span>, <span>{{ product.infos2 }}</span>, <span>{{ product.infos3 }}</span></p>
                 <p>{{ product.description }}</p>
         {% if session %}

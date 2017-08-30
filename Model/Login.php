@@ -8,7 +8,6 @@ class Login extends Sql {
     public $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
 
 
-
     public function session(){
             $session = $_SESSION;
             return $session;

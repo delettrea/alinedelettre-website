@@ -1,17 +1,14 @@
-$(document).ready(function () {
-    $.stellar();
-});
-
-
 // function for see production's filter.
 $("#all, #html, #css, #javascript, #php").click(function () {
+    $('.test-filter').removeClass('active');
     var input = $(this);
+    $(input).addClass('active');
     var filter = $(input).attr("id");
     var action = 'index.php?action=test';
     $(".rowProduct").slideUp('800', function () {
-        $.get(action, {
+        $.ajax({method: "GET", url :action, data:{
             filter: filter
-        }, function (data) {
+        }}).done(function (data) {
             $(".rowProduct").html(data);
             $(".rowProduct").slideDown('slow');
         });
@@ -82,16 +79,6 @@ $(document).ready(function (){
         $(".empty").toggle(1000);
     })
 });
-
-/*$(document).ready(function (){
-    $(".test").hide();
-    $("#menu").click(function () {
-        $(".test").animate({
-            width: "toggle"
-        });
-        //$(".empty").toggle(1000);
-    })
-});*/
 
 // Scroll Magic fade elements
 $(document).ready(function () {

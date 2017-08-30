@@ -2,7 +2,7 @@
 
 {% block contain %}
 <div class="page">
-        <section class="section section1">
+        <section id="section1" class="section section1">
             <div class="space white">
                 <h3>Présentation</h3>
             </div>
@@ -35,23 +35,23 @@
                     Tous mes sites web sont responsives, c'est-à-dire que l'on peut les utiliser sur toutes les plateformes du pc au téléphone mobile.
                 </p>
                 <div class="responsive">
-                    <img class="fade" src="img/imac-1999636_19221.png" alt="responsive">
+                    <img class="fade" src="img/imac-1999636_19221.jpg" alt="responsive">
                 </div>
             </div>
             <div class="space white fade">
-                <a href="" class="button fade">Voir mes réalisations</a>
-                <a href="" class="button fade">Prendre contact</a>
+                <a href="#section2" class="button fade">Voir mes réalisations</a>
+                <a href="#section3" class="button fade">Prendre contact</a>
             </div>
         </section>
-        <div id="fade2" class="bcg-parallax" data-stellar-background-ratio="0.5">
+        <div id="fade2" class="bcg-parallax">
         </div>
         <section id="fade3" class="section section2 skewedBox">
-            <div class="space white fade2">
+            <div id="section2" class="space white fade2">
                 <h3>Réalisations</h3>
             </div>
             <div class="all-filter space white fade2">
-                <p class="test-filter" id="html">html<span class="separation">/</span></p><p class="test-filter" id="css">css<span class="separation">/</span></p>
-                <p class="test-filter" id="javascript">JavaScript<span class="separation">/</span></p><p class="test-filter" id="php">php<span class="separation">/</span></p>
+                <p class="test-filter" id="html">html</p><span class="separation">/</span><p class="test-filter" id="css">css</p><span class="separation">/</span>
+                <p class="test-filter" id="javascript">JavaScript</p><span class="separation">/</span><p class="test-filter" id="php">php</p><span class="separation">/</span>
                 <p class="test-filter" id="all">all</p>
             </div>
             <div class="rowProduct">
@@ -65,9 +65,9 @@
                     {% block seeEditProduction %}{% endblock %}
                 {% endif %}
         </section>
-    <div id="fade4"class="second-parallax" data-stellar-background-ratio="0.5">
+    <div id="fade4"class="second-parallax">
     </div>
-        <section class="section section3 fade4">
+        <section id="section3" class="section section3 fade4">
             <div id="fade5" class="space white fade4">
                 <h3>Contact</h3>
             </div>
