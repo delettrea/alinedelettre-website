@@ -6,7 +6,7 @@ class Controller extends HomeController {
     
 
     /**
-     * Fonction permettant le lancement des autres fonctions.
+     *
      */
     public function website($twig){
         if (isset($_GET['action'])){
@@ -14,11 +14,16 @@ class Controller extends HomeController {
             $this->action($action,$twig);
         }
         else{
-            echo $twig->render('footer.twig', $this->seeProduction());
+            echo $twig->render('website.twig', $this->seeProduction());
         }
     }
 
-    protected function action($action,$twig){
+    /**
+     * Function for know which must be seeing in the website
+     * @param $action string read $_GET['action']
+     * @param $twig string twig for seeing website.
+     */
+    public function action($action,$twig){
         if ($action == "ml") {
             echo $twig->render('legal.twig');
         }
@@ -35,20 +40,20 @@ class Controller extends HomeController {
             $this->sendProduction($twig);
         }
         elseif($action == "editProduction") {
-            echo $twig->render('footer.twig', $this->editProduction());
+            echo $twig->render('website.twig', $this->editProduction());
         }
         elseif($action == "sendEditProduction"){
            $this->sendEditProduction();
-           echo $twig->render('footer.twig', $this->seeProduction());
+           echo $twig->render('website.twig', $this->seeProduction());
         }
         elseif($action == "deleteProduction") {
             $this->deleteProduction();
-            echo $twig->render('footer.twig', $this->seeProduction());
+            echo $twig->render('website.twig', $this->seeProduction());
         }
         elseif($action == "sendContact") {
             $this->testEmail();
         }
-        elseif($action == "test") {
+        elseif($action == "productionFilter") {
             $this->testFilterProduction($twig);
         }
     }

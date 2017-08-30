@@ -5,18 +5,22 @@ namespace App\Model;
 
 class Login extends Sql {
 
-    public $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
+    protected $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
 
 
-    public function session(){
+    /**
+     * Function for know if the user is connected.
+     * @return mixed array
+     */
+    protected function session(){
             $session = $_SESSION;
             return $session;
     }
 
     /**
-     * Disconnect from user
+     * Disconnect user
      */
-    public function logout(){
+    protected function logout(){
         session_destroy();
         header('location: index.php');
     }
@@ -25,7 +29,7 @@ class Login extends Sql {
      * Test data from form login
      * @return array with sql
      */
-    public function checkValueLogin(){
+    protected function checkValueLogin(){
         extract($_POST);
         $login = htmlspecialchars($login);
         $password = sha1($password);
@@ -38,7 +42,7 @@ class Login extends Sql {
      * Send data to the sql
      * @return \PDOStatement array with sql result
      */
-    public function prepareSendLogin(){
+    protected function prepareSendLogin(){
         $request = $this->sqlPrepare($this->sqlLogin, $this->checkValueLogin());
         return $request;
     }

@@ -1,5 +1,4 @@
-{% block header %}{% endblock %}
-
+{% include 'header.twig' %}
 {% block contain %}
 <div class="page">
         <section id="section1" class="section section1">
@@ -10,17 +9,17 @@
                 <div class="presentation">
                     <img class="portrait" src="https://avatars1.githubusercontent.com/u/29575195?v=4&s=460" alt="portrait">
                     <div class="row">
-                <p>Jeune femme dynamique passionnée d'informatique.<br>Je suis étudiante sur Openclassrooms en Développement Web.</p>
+                <p>Dynamique et passionnée d'informatique.<br>Je suis étudiante sur Openclassrooms en Développement Web.</p>
                 <a href="https://github.com/delettrea" target="_blank" class="button"><i class="fa fa-github" aria-hidden="true"></i> mon GitHub</a>
                     </div>
                     </div>
             </div>
             <div class="space white">
                 <p>Mes diplômes</p>
-                <ul class="list-diplomes">
-                    <li>Licence de Philosohpie</li>
-                    <li id="fade" >Licence d'Adminsitration Publique</li>
-                    <li>Baccalauréat économique et social</li>
+                <ul class="list-diplomes fa-ul">
+                    <li><i class="fa-li fa fa-graduation-cap"></i>Licence de Philosohpie</li>
+                    <li  id="fade" ><i class="fa-li fa fa-graduation-cap"></i>Licence d'Adminsitration Publique</li>
+                    <li><i class="fa-li fa fa-graduation-cap"></i>Baccalauréat économique et social</li>
                 </ul>
             </div>
             <div class="space white row">
@@ -39,8 +38,8 @@
                 </div>
             </div>
             <div class="space white fade">
-                <a href="#section2" class="button fade">Voir mes réalisations</a>
-                <a href="#section3" class="button fade">Prendre contact</a>
+                <p class="toSection2 button fade">Voir mes réalisations</p>
+                <p class="toSection3 button fade">Prendre contact</p>
             </div>
         </section>
         <div id="fade2" class="bcg-parallax">
@@ -55,14 +54,13 @@
                 <p class="test-filter" id="all">all</p>
             </div>
             <div class="rowProduct">
-                {% block seeProduction %}{% endblock %}
+                {% include 'production.twig' %}
             </div>
                 {% if session%}
                     <div class="space white">
                         <h3>Administration des réalisations</h3>
                     </div>
-                    {% block seeNewProduction %}{% endblock %}
-                    {% block seeEditProduction %}{% endblock %}
+                    {% include 'adminProduction.twig' %}
                 {% endif %}
         </section>
     <div id="fade4"class="second-parallax">
@@ -71,8 +69,8 @@
             <div id="fade5" class="space white fade4">
                 <h3>Contact</h3>
             </div>
-            {% block contact %}{% endblock %}
+            {% include 'contact.twig' %}
         </section>
     </div>
 {% endblock %}
-{% block footer %}{% endblock %}
+{% include 'footer.twig' %}

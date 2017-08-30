@@ -4,16 +4,16 @@ namespace App\Model;
 
 class Contact extends Production {
 
-    public $message;
-    public $objet;
-    public $expediteur;
-    public $email;
-    public $destinataire = 'aline.delettre4@gmail.com';
+    protected $message;
+    protected $objet;
+    protected $expediteur;
+    protected $email;
+    protected $destinataire = 'aline.delettre4@gmail.com';
 
     /**
-     * Permet de vérifier le $_Post du formulaire de contact.
+     * Function for test mail's xss fail.
      */
-    public function message(){
+    protected function message(){
         extract($_POST);
         $this->message = htmlspecialchars($mail);
         $this->objet = htmlspecialchars($object);
@@ -22,9 +22,9 @@ class Contact extends Production {
     }
 
     /**
-     * Envoie un mail suite au formulaire de contact.
+     * Function for send email.
      */
-    public function sendEmail(){
+    protected function sendEmail(){
         $this->message();
         $destinataire = $this->destinataire;
         $expediteur = $this->expediteur;
@@ -44,6 +44,9 @@ class Contact extends Production {
 
     }
 
+    /**
+     * Function for seeing if the user has correctly filled fields. Stop if it's not correct.
+     */
     protected function testEmail(){
         if(empty($_POST['name'])){
             echo '<div class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Veuillez renseigner un nom</div>';

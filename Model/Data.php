@@ -16,7 +16,7 @@ class Data{
 
     /**
      * Data constructor.
-     * Se connecte à la base de données.
+     * Connect to the database.
      */
     public function __construct(){
         try{

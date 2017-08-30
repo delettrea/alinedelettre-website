@@ -4,7 +4,7 @@ $("#all, #html, #css, #javascript, #php").click(function () {
     var input = $(this);
     $(input).addClass('active');
     var filter = $(input).attr("id");
-    var action = 'index.php?action=test';
+    var action = 'index.php?action=productionFilter';
     $(".rowProduct").slideUp('800', function () {
         $.ajax({method: "GET", url :action, data:{
             filter: filter
@@ -112,6 +112,28 @@ $(document).ready(function () {
     })
         .setClassToggle('.fade5', 'fade-in5')
         .addTo(controller);
+});
+
+//function for scroll to the target.
+// go to the section 1.
+$('.toSection1').click(function () {
+    var elem = $('#section1');
+    $('html, body').animate({ scrollTop: elem.offset().top }, 1000 );
+});
+// go to the section 2.
+$('.toSection2').click(function () {
+    var elem = $('#section2');
+    $('html, body').animate({ scrollTop: elem.offset().top }, 1000 );
+});
+// go to the section 3.
+$('.toSection3').click(function () {
+    var elem = $('#section3');
+    $('html, body').animate({ scrollTop: elem.offset().top }, 1000 );
+});
+// go to the top .
+$('.top').click(function () {
+    var elem = $('header');
+    $('html, body').animate({ scrollTop: elem.offset().top }, 1000 );
 });
 
 

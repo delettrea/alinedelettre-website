@@ -27,13 +27,11 @@ body{
 h1{
     font-family: 'blenda', sans-serif;
     margin: 0;
-    color: white;
     font-weight: 400;
     font-size: 2.7em;
 }
 
 h2{
-    color: white;
     font-weight: 400;
     margin: 8px 0 34px 0;
 }
@@ -68,6 +66,7 @@ li{
     text-align: center;
     color: #5a5a5a;
     padding: 11px 27px 11px 27px;
+    cursor: pointer;
 }
 
 .button:hover, input[type=submit]:hover{
@@ -173,36 +172,23 @@ header ul{
 
 header li{
     margin: 20px 0;
-}
-
-header li a{
-    border: 1px solid white;
+    border: 1px solid #5a5a5a;
     padding: 10px 36px 6px 36px;
-}
-
-header li:hover a{
-    background-color: white;
-}
-
-header li:hover a{
-     color: #00bcd4;
- }
-
-header li a {
-    color: white;
     font-weight: 600;
+    color: #5a5a5a;
 }
 
-header a{
-    color: white;
-}
+header li:hover{
+    background-color: #5a5a5a;
+     color: #00bcd4;
+    cursor: pointer;
+ }
 
 header #menu{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-top: 11px;
-    color: white;
     font-weight: 600;
     max-width: 1000px;
     margin: auto;
@@ -217,14 +203,19 @@ header i{
 }
 
 header .button{
-    border: 1px solid #ffffff;
+    background-color: #5a5a5a;
     padding: 10px 15px 6px 15px;
     text-transform: uppercase;
-    color: #00bcd4;
+    color: #ffffff;
+    margin: auto;
 }
 
 header .button:hover{
-    border-color: #ffffff;
+    border-color: #5a5a5a;
+}
+
+header h1:hover, header h2:hover{
+    cursor: pointer;
 }
 
 /* CARD */
@@ -290,6 +281,16 @@ header .button:hover{
     justify-content: center;
 }
 
+.section1 > div:nth-child(6) p:hover{
+    color: #00bcd4;
+    border-color: #00bcd4;
+    transition: none;
+}
+
+.section1 > div:nth-child(6) p{
+    margin: 12px 0;
+}
+
 /*--- SECTION 3 ---*/
 
 .section3 form .space,.log form .space , footer .space{
@@ -311,6 +312,7 @@ form input[type=text],form input[type=email],form input[type=password],form inpu
     box-sizing: border-box;
     padding: 12px 20px;
     font-family: 'sertig', sans-serif;
+    font-size: 1em;
 
 }
 
@@ -448,6 +450,11 @@ footer{
     color: #5a5a5a;
 }
 
+/*--- TOP BUTTON ---*/
+
+.top{
+    display: none;
+}
 
 @media (min-width: 736px){
     .header {
@@ -484,6 +491,25 @@ footer{
         flex-wrap: wrap;
         justify-content: space-around;
     }
+    .top{
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.25);
+        position: fixed;
+        border-radius: 40px;
+        top: 90vh;
+        left: 94vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .top:hover{
+        background-color: rgba(0, 0, 0, 0.14);
+        color: #00bcd4;
+        transition: none;
+    }
 }
 
 @media (min-width: 1000px){
@@ -501,6 +527,6 @@ footer{
         height: 31vh;
     }
     .presentation{
-        width: 62%;
+        width: 700px;
     }
 }

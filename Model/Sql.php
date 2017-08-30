@@ -11,9 +11,10 @@ class Sql extends Data{
 
 
     /**
-     * @param $sql string requête SQL
-     * @param null $array array pour la fonction prepare
-     * @return \PDOStatement résultat de la requête
+     * Function for execute PDO.
+     * @param $sql string SQL request.
+     * @param null $array just for prepare request.
+     * @return \PDOStatement request's result.
      */
      protected function sqlPrepare($sql,$array = null){
          if($array) {
