@@ -1,0 +1,19 @@
+{
+    "name": "app/autoload",
+    "authors": [
+        {
+            "name": "Aline Delettre",
+            "email": "delettrealine@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "App\\Model\\" :"Model",
+            "App\\Vue\\" : "Vue",
+            "App\\Controller\\" : "Controller"
+        }
+    },
+    "require": {
+        "twig/twig": "^2.0"
+    }
+}

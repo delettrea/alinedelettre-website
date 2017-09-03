@@ -1,0 +1,12 @@
+{% block contain %}
+    {%  include 'header.twig' %}
+    <section class="notFound">
+    <img class="imgError" src="img/error.jpg" alt="404">
+    <div>
+        <p>Page not found.</p>
+        <p>The link you clicked may be broken or the page may have been removed.</p>
+        <p>La page demandée ne fonctionne pas ou a été supprimée.</p>
+    </div>
+    </section>
+    {% include 'footer.twig' %}
+{% endblock %}

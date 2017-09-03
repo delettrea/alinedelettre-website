@@ -9,9 +9,14 @@ class Controller extends HomeController {
      *
      */
     public function website($twig){
-        if (isset($_GET['action'])){
-            $action = $_GET['action'];
-            $this->action($action,$twig);
+        if (!empty($_GET)){
+            if(isset($_GET['action'])) {
+                $action = $_GET['action'];
+                $this->action($action, $twig);
+            }
+            else{
+                echo $twig->render('404.twig');
+            }
         }
         else{
             echo $twig->render('website.twig', $this->seeProduction());
@@ -55,6 +60,9 @@ class Controller extends HomeController {
         }
         elseif($action == "productionFilter") {
             $this->testFilterProduction($twig);
+        }
+        else{
+            echo $twig->render('404.twig');
         }
     }
 }

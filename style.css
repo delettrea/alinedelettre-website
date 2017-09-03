@@ -450,6 +450,18 @@ footer{
     color: #5a5a5a;
 }
 
+/*--- 404 ---*/
+
+.imgError{
+    width: 300px;
+    margin: 12px auto;
+    display: flex;
+}
+
+.notFound p{
+    text-align: center;
+}
+
 /*--- TOP BUTTON ---*/
 
 .top{
