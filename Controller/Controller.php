@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 class Controller extends HomeController {
-    
 
     /**
      *
@@ -57,9 +56,6 @@ class Controller extends HomeController {
         }
         elseif($action == "sendContact") {
             $this->testEmail();
-        }
-        elseif($action == "productionFilter") {
-            $this->testFilterProduction($twig);
         }
         else{
             echo $twig->render('404.twig');

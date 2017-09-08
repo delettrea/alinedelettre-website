@@ -14,21 +14,21 @@ class Production extends Login {
     protected $sqlNewProduction ="INSERT INTO `production`(`href`, `name`, `description`, `infos1`, `infos2`, `infos3`) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
 
 
-    /**
-     * Function for filter productions.
-     * @param $twig string twig for seeing website.
-     */
-    protected function testFilterProduction($twig){
-      if($_GET['filter'] !== 'all'){
-          extract($_GET);
-          $infos = array("infos" => '%'.$filter.'%');
-          $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, $infos));
-          echo $twig->render('production.twig', $sqlFiltre);
-      }
-      elseif ($_GET['filter'] === 'all'){
-          echo $twig->render('production.twig', $this->seeProduction());
-      }
+    public function testFilter($twig){
+        if(isset($_GET['filter'])){
+            if($_GET['filter'] === 'html' || 'css' || 'javascript' || 'php' ){
+                extract($_GET);
+                $infos = array("infos" => '%'.$filter.'%');
+                $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, $infos));
+                echo $twig->render('production.twig', $sqlFiltre);
+            }
+        }
+        elseif ($_GET['filter'] === 'all'){
+            $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeProduction));
+            echo $twig->render('production.twig', $sqlFiltre);
+        }
     }
+
 
     /**
      * Function for seeing website.
@@ -111,7 +111,4 @@ class Production extends Login {
         $arraySendEdit = array_merge($this->arrayProduct(), $arrayID);
         return $arraySendEdit;
     }
-
-
-
 }
