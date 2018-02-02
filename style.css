@@ -468,6 +468,12 @@ footer{
     display: none;
 }
 
+/*--- BODL ---*/
+
+.bold{
+    font-weight: bold;
+}
+
 @media (min-width: 736px){
     .header {
         background-image: url('img/header.jpg');
