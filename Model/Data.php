@@ -9,9 +9,9 @@ namespace App\Model;
 class Data{
 
     const HOST = 'localhost';
-    const DBNAME = 'project5';
+    const DBNAME = 'alinedelettre';
     const USERNAME = 'root';
-    const PASSWORD = '';
+    const PASSWORD = 'delettre';
     protected $bdd;
 
     /**

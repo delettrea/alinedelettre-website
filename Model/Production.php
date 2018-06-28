@@ -5,7 +5,7 @@ namespace App\Model;
 
 class Production extends Login {
 
-    protected $sqlSeeProduction = "SELECT * FROM `production`";
+    protected $sqlSeeProduction = "SELECT * FROM production ORDER BY id DESC";
     protected $sqlSeeJustThisProduction = "SELECT * FROM `production` WHERE `infos1` LIKE :infos  OR `infos2` LIKE :infos OR `infos3` LIKE :infos";
     protected $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:id";
     protected $sqlDeleteProduction ="DELETE FROM `production` WHERE id=:id";
