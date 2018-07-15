@@ -5,7 +5,7 @@ namespace App\Model;
 
 class Production extends Login {
 
-    protected $sqlSeeProduction = "SELECT * FROM production ORDER BY id DESC";
+    protected $sqlSeeProduction = "SELECT * FROM `production`";
     protected $sqlSeeJustThisProduction = "SELECT * FROM `production` WHERE `infos1` LIKE :infos  OR `infos2` LIKE :infos OR `infos3` LIKE :infos";
     protected $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:id";
     protected $sqlDeleteProduction ="DELETE FROM `production` WHERE id=:id";
@@ -13,19 +13,21 @@ class Production extends Login {
     protected $sqlSelectId = "SELECT `id` FROM `production`";
     protected $sqlNewProduction ="INSERT INTO `production`(`href`, `name`, `description`, `infos1`, `infos2`, `infos3`) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
 
-
+    /**
+     * Function for filter ajax.
+     * @param $twig string for render twig
+     */
     public function testFilter($twig){
         if(isset($_GET['filter'])){
-            if($_GET['filter'] === 'html' || 'css' || 'javascript' || 'php' ){
+            if (($_GET['filter'] === 'html') || ($_GET['filter'] === 'css') || ($_GET['filter'] === 'javascript') || ($_GET['filter'] === 'php')) {
                 extract($_GET);
-                $infos = array("infos" => '%'.$filter.'%');
+                $infos = array("infos" => '%' . $filter . '%');
                 $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeJustThisProduction, $infos));
                 echo $twig->render('production.twig', $sqlFiltre);
+            } else {
+                $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeProduction));
+                echo $twig->render('production.twig', $sqlFiltre);
             }
-        }
-        elseif ($_GET['filter'] === 'all'){
-            $sqlFiltre = array("productions" => $this->sqlPrepare($this->sqlSeeProduction));
-            echo $twig->render('production.twig', $sqlFiltre);
         }
     }
 

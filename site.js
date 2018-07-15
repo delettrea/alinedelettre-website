@@ -4,7 +4,7 @@ $("#all, #html, #css, #javascript, #php").click(function () {
     var input = $(this);
     $(input).addClass('active');
     var filter = $(input).attr("id");
-    var action = 'test.php';
+    var action = 'filter.php';
     $(".rowProduct").slideUp('800', function () {
         $.ajax({method: "GET", url :action, data:{
             filter: filter
