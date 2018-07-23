@@ -5,13 +5,13 @@ namespace App\Model;
 
 class Production extends Login {
 
-    protected $sqlSeeProduction = "SELECT * FROM `production`";
-    protected $sqlSeeJustThisProduction = "SELECT * FROM `production` WHERE `infos1` LIKE :infos  OR `infos2` LIKE :infos OR `infos3` LIKE :infos";
-    protected $sqlSeeEditProduction = "SELECT * FROM `production` WHERE id=:id";
-    protected $sqlDeleteProduction ="DELETE FROM `production` WHERE id=:id";
-    protected $sqlSendEditProduct = "UPDATE `production` SET href=:href,name=:name,description=:description,infos1=:infos1,infos2=:infos2,infos3=:infos3 WHERE id=:id";
-    protected $sqlSelectId = "SELECT `id` FROM `production`";
-    protected $sqlNewProduction ="INSERT INTO `production`(`href`, `name`, `description`, `infos1`, `infos2`, `infos3`) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
+    protected $sqlSeeProduction = "SELECT * FROM production ORDER BY id DESC";
+    protected $sqlSeeJustThisProduction = "SELECT * FROM production WHERE infos1 LIKE :infos  OR infos2 LIKE :infos OR infos3 LIKE :infos ORDER BY id DESC";
+    protected $sqlSeeEditProduction = "SELECT * FROM production WHERE id=:id";
+    protected $sqlDeleteProduction ="DELETE FROM production WHERE id=:id";
+    protected $sqlSendEditProduct = "UPDATE production SET href=:href,name=:name,description=:description,infos1=:infos1,infos2=:infos2,infos3=:infos3 WHERE id=:id";
+    protected $sqlSelectId = "SELECT id FROM production";
+    protected $sqlNewProduction ="INSERT INTO production(href, name, description, infos1, infos2, infos3) VALUES (:href, :name, :description, :infos1, :infos2, :infos3)";
 
     /**
      * Function for filter ajax.

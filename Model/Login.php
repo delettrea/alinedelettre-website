@@ -5,7 +5,7 @@ namespace App\Model;
 
 class Login extends Sql {
 
-    protected $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE `login` =:login AND `password` =:password";
+    protected $sqlLogin = "SELECT id, login, user.type, COUNT(id) AS findLogin FROM user WHERE login =:login AND password =:password";
 
 
     /**
